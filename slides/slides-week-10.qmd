@@ -1,0 +1,94 @@
+---
+title: R in 3 Months Week 10 (Advanced Data Viz, Part 2)
+format:
+  rfortherestofus-slides-revealjs:
+    menu: false
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
+execute: 
+  message: false
+  warning: false
+  cache: false
+  # eval: false
+  echo: true
+title-slide-attributes:
+  data-background-image: assets/rru-hex-bg-gradient-dark.svg
+  data-background-size: cover
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(janitor)
+```
+
+
+# Agenda
+
+1. Housekeeping
+
+1. Advanced Custom Themes
+
+1. Mapping
+
+1. Next Week
+
+::: {.notes}
+https://rin3fall2023.rfortherestofus.com/slides-week-10.html
+:::
+
+# Housekeeping
+
+1. Catch-up week next week
+
+1. All lessons have been posted
+
+1. Final assignment has been posted
+
+
+# Advanced Custom Themes {.inverse}
+
+::: {.notes}
+https://book.rwithoutstatistics.com/custom-theme-chapter
+:::
+
+# Organizations with Public Custom {ggplot2} Themes 
+
+* [The BBC's {bbplot} Package](https://github.com/bbc/bbplot)  
+
+* [The BBC's Cookbook for R Graphics](https://bbc.github.io/rcookbook/) 
+
+* [Washington Soil Health Initiative {washi} Branding Package](https://wa-department-of-agriculture.github.io/washi/)  
+
+# Organizations with Public Custom {ggplot2} Themes, Continued 
+
+* [Sage Bionetworks {sagethemes} Package](https://sage-bionetworks.github.io/sagethemes/)
+
+* [Duke University's {duke} Package](https://aidangildea.github.io/duke/)
+
+* [University of Exeter's theme_exeter()](https://github.com/lukepilling/theme_exeter)
+
+# Mapping {.inverse}
+
+::: {.notes}
+https://book.rwithoutstatistics.com/maps-chapter
+
+- geometry type
+- dimensions
+- bounding box
+- crs
+- geometry column
+:::
+
+
+# Next Week
+
+- Catch-up week!
+
+- Feel free to reach out to coaches for 1-on-1 help
