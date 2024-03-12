@@ -380,3 +380,9 @@ https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
 - Do some analysis on your own data
 
 - If you have used R in the past, please do more than just a simple analysis!
+
+# A Final Message to Leave You With
+
+. . .
+
+[![](assets/hadley-bad-code.png)](https://fosstodon.org/@hadleywickham/112021309035884210)
