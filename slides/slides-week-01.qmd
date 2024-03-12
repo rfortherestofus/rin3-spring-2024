@@ -33,7 +33,7 @@ library(rnaturalearthdata)
 library(sf)
 library(emojifont)
 
-world_sf <- countries110 |> 
+world_sf <- countries110 |>
   st_as_sf()
 ```
 
@@ -79,71 +79,100 @@ If you haven't yet completed the pre-survey, [please do so now](https://docs.goo
 ```{r}
 gs4_auth("david@rfortherestofus.com")
 
-participants <- read_sheet("https://docs.google.com/spreadsheets/d/1Rz7_1_CzxURdhPHRj9YAzV-tgQP6xQmY_qV0VPjhPYs/edit#gid=0") |>
+participants <-
+  read_sheet(
+    "https://docs.google.com/spreadsheets/d/1Rz7_1_CzxURdhPHRj9YAzV-tgQP6xQmY_qV0VPjhPYs/edit#gid=1655863522",
+    sheet = "Spring 2024 Participants"
+  ) |>
   clean_names()
 
-geocoded_participants <- participants |>
-  drop_na(city) |> 
+geocoded_participants <-
+  participants |>
+  drop_na(city) |>
   select(city, state_province, country) |>
-  geocode(city = city,
-          state = state_province,
-          country = country,
-          method = "iq") |> 
-  drop_na(long, lat) |> 
-  st_as_sf(coords = c("long", "lat"),
-           crs = 4326)
-  
+  geocode(
+    city = city,
+    state = state_province,
+    country = country,
+    method = "iq"
+  ) |>
+  drop_na(long, lat) |>
+  st_as_sf(
+    coords = c("long", "lat"),
+    crs = 4326
+  )
+
 
 ggplot() +
-  geom_sf(data = world_sf,
-          fill = "bisque",
-          color = "white",
-          size = 0.5) +
-    geom_sf(data = geocoded_participants,
-            shape = 21,
-            color = "white",
-            fill = "#6cabdd") +
+  geom_sf(
+    data = world_sf,
+    fill = "bisque",
+    color = "white",
+    size = 0.5
+  ) +
+  geom_sf(
+    data = geocoded_participants,
+    shape = 21,
+    color = "white",
+    fill = "#6cabdd"
+  ) +
   theme_void()
 ```
 
 ## How much have you used R?
 
 ```{r}
-pre_survey <- read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit?resourcekey#gid=1201619159") |> 
+pre_survey <-
+  read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit?resourcekey#gid=1201619159") |>
   clean_names()
 ```
 
 ```{r}
-pre_survey_fall_2023 <- pre_survey |> 
-  mutate(year = year(timestamp)) |> 
-  filter(timestamp > ymd("2023-08-01"),
-         timestamp < ymd("2023-12-31"),
-         ! `what_is_your_name` %in% c("David Keyes", "David")) |> 
-  mutate(how_much_have_you_used_r = factor(how_much_have_you_used_r,
-                                           levels = c("Never", "Very Infrequently", "Occasionally", "Frequently")))
+pre_survey_filtered <-
+  pre_survey |>
+  mutate(year = year(timestamp)) |>
+  filter(
+    timestamp > ymd("2024-01-01")
+  ) |>
+  mutate(how_much_have_you_used_r = factor(
+    how_much_have_you_used_r,
+    levels = c("Never", "Very Infrequently", "Occasionally", "Frequently")
+  ))
 
 rin3_bar_chart <- function(df, x_var, number_of_breaks = 4) {
   
-  df |> 
-    ggplot(aes(y = n,
-               x = {{ x_var }})) +
+  respondents <-
+    df |>
+    summarize(n = sum(n, na.rm = TRUE)) |>
+    pull(n)
+
+  df |>
+    ggplot(aes(
+      y = n,
+      x = {{ x_var }}
+    )) +
     geom_col(fill = "#6cabdd") +
-    labs(y = NULL,
-         x = NULL) +
+    labs(
+      y = NULL,
+      x = NULL
+    ) +
     theme_minimal(base_family = "Inter Regular", base_size = 20) +
-    theme(plot.title.position = "plot",
-          plot.caption = element_text(size = 14,
-                                      color = "grey50"),
-          panel.grid.minor.x = element_blank(),
-          panel.grid.major.x = element_blank(),
-          panel.grid.minor.y = element_blank()) +
+    theme(
+      plot.title.position = "plot",
+      plot.caption = element_text(
+        size = 14,
+        color = "grey50"
+      ),
+      panel.grid.minor.x = element_blank(),
+      panel.grid.major.x = element_blank(),
+      panel.grid.minor.y = element_blank()
+    ) +
     scale_y_continuous(breaks = pretty_breaks(number_of_breaks)) +
-    labs(caption = str_glue("n = {nrow(df)}"))
-  
+    labs(caption = str_glue("n = {respondents}"))
 }
 
-pre_survey_fall_2023 |> 
-  select(how_much_have_you_used_r) |> 
+pre_survey_filtered |>
+  select(how_much_have_you_used_r) |>
   count(how_much_have_you_used_r, .drop = FALSE) |>
   rin3_bar_chart(how_much_have_you_used_r)
 ```
@@ -151,48 +180,51 @@ pre_survey_fall_2023 |>
 ## How would you rate your level of expertise working with R for DATA ANALYSIS?
 
 ```{r}
-data_analysis_expertise <- pre_survey_fall_2023 |> 
-  select(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis) |> 
+data_analysis_expertise <- 
+  pre_survey_filtered |>
+  select(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis) |>
   count(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis) |>
-  rename(data_analysis_expertise = how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis) |> 
-  right_join(tibble(data_analysis_expertise = 1:10)) |> 
-  mutate(data_analysis_expertise = as.character(data_analysis_expertise)) |> 
-  mutate(data_analysis_expertise = fct_relevel(data_analysis_expertise, as.character(1:10))) |> 
+  rename(data_analysis_expertise = how_would_you_rate_your_level_of_expertise_working_with_r_for_data_analysis) |>
+  right_join(tibble(data_analysis_expertise = 1:10)) |>
+  mutate(data_analysis_expertise = as.character(data_analysis_expertise)) |>
+  mutate(data_analysis_expertise = fct_relevel(data_analysis_expertise, as.character(1:10))) |>
   mutate(data_analysis_expertise = fct_recode(data_analysis_expertise, "1\nNovice" = "1", "10\nExpert" = "10"))
 
-data_analysis_expertise |> 
+data_analysis_expertise |>
   rin3_bar_chart(data_analysis_expertise)
 ```
 
 ## How would you rate your level of expertise working with R for DATA VISUALIZATION?
 
 ```{r}
-data_viz_expertise <- pre_survey_fall_2023 |> 
-  select(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization) |> 
+data_viz_expertise <-
+  pre_survey_filtered |>
+  select(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization) |>
   count(how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization) |>
-  rename(data_viz_expertise = how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization) |> 
-  right_join(tibble(data_viz_expertise = 1:10)) |> 
-  mutate(data_viz_expertise = as.character(data_viz_expertise)) |> 
-  mutate(data_viz_expertise = fct_relevel(data_viz_expertise, as.character(1:10))) |> 
+  rename(data_viz_expertise = how_would_you_rate_your_level_of_expertise_working_with_r_for_data_visualization) |>
+  right_join(tibble(data_viz_expertise = 1:10)) |>
+  mutate(data_viz_expertise = as.character(data_viz_expertise)) |>
+  mutate(data_viz_expertise = fct_relevel(data_viz_expertise, as.character(1:10))) |>
   mutate(data_viz_expertise = fct_recode(data_viz_expertise, "1\nNovice" = "1", "10\nExpert" = "10"))
 
-data_viz_expertise |> 
+data_viz_expertise |>
   rin3_bar_chart(data_viz_expertise)
 ```
 
 ## On a scale from terrified to excited, how do you feel about the process of learning R?
 
 ```{r}
-how_terrified <- pre_survey_fall_2023 |> 
-  select(on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r) |> 
+how_terrified <- 
+  pre_survey_filtered |>
+  select(on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r) |>
   count(on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r) |>
-  rename(how_terrified = on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r) |> 
-  right_join(tibble(how_terrified = 1:10)) |> 
-  mutate(how_terrified = as.character(how_terrified)) |> 
-  mutate(how_terrified = fct_relevel(how_terrified, as.character(1:10))) |> 
+  rename(how_terrified = on_a_scale_from_terrified_to_excited_how_do_you_feel_about_the_process_of_learning_r) |>
+  right_join(tibble(how_terrified = 1:10)) |>
+  mutate(how_terrified = as.character(how_terrified)) |>
+  mutate(how_terrified = fct_relevel(how_terrified, as.character(1:10))) |>
   mutate(how_terrified = fct_recode(how_terrified, "1\nTerrified" = "1", "10\nExcited" = "10"))
 
-how_terrified |> 
+how_terrified |>
   rin3_bar_chart(how_terrified)
 ```
 
@@ -240,11 +272,7 @@ Share with the people in your breakout room:
 [![](assets/rin3-course.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2023)
 
 ::: {.notes}
-Materials always ready one week ahead
-
-Courses are being re-recorded so please provide feedback
-
-Transcripts are auto generated and may contain minor inaccuracies.
+Redoing GH materials
 :::
 
 ## Captions
@@ -257,25 +285,35 @@ Transcripts are auto generated and may contain minor inaccuracies.
 
 ## Project Assignments
 
-[![](assets/project-assignment.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/week2-project-assignment)
+[![](assets/project-assignment.png)](https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/week2-project-assignment)
 
 ## Feedback
 
 ![](assets/feedback-example.png)
 
+::: {.notes}
+https://rfortherestofus.com/feedback/e3f8016b-8070-4ddd-9c0e-36eddbe57937
+:::
+
 ## Project Datasets
 
 - This is an opportunity for you to practice working with your own data
 
-- If you need to help to remove personally identifiable information, please let your coach know!
+- However, sometimes people's own data can be quite complicated and not suitable for the beginning part of R in 3 Months
+
+- Libby has collected datasets better suited to where people just starting out are
+
+::: {.notes}
+https://github.com/rfortherestofus/rin3-datasets
+:::
 
 ## Project Datasets
+
+- If you need to help to remove personally identifiable information, please let your coach know!
 
 - If you can't share your datasets (or don't have any) you could try looking at [Tidy Tuesday datasets](https://github.com/rfordatascience/tidytuesday).
 
 - There are also some good datasets collected by Vincent Arel-Bundock [here](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)
-
-
 
 ## Discord
 
@@ -292,7 +330,13 @@ Transcripts are auto generated and may contain minor inaccuracies.
 
 ## Co-Working Sessions
 
-Chance to ask questions of coaches (think of college office hours) and/or work together with others
+- Mondays from 10:00am - 11:00am Pacific time ([Zoom link](https://us02web.zoom.us/j/88516792275?pwd=WkFmbXdyTk8yOGVHaCtucTJFUmoydz09))
+
+- Review of week's content etc
+
+- Will happen during first two weeks
+
+
 
 ## Live Sessions
 
@@ -305,6 +349,15 @@ Chance to ask questions of coaches (think of college office hours) and/or work t
 https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
 :::
 
+# Coaches
+
+- You will be assigned a coach (Libby or Gracielle) who will reach out to you this week
+
+- You can schedule 1-on-1 calls with them if you have specific questions:
+
+- [Libby's scheduling link](https://savvycal.com/libby/30min)
+
+- [Gracielle's scheduling link](TODO)
 
 # Getting Started Questions {.inverse}
 
@@ -322,9 +375,8 @@ https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
 
 - You'll learn the fundamentals of data wrangling and analysis with the `dplyr` package
 
-- You are the first to see these lessons so please let me know if you have feedback!
-
 ## Project Assignment
 
 - Do some analysis on your own data
 
+- If you have used R in the past, please do more than just a simple analysis!
