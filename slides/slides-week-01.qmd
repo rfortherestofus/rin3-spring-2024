@@ -49,6 +49,10 @@ world_sf <- countries110 |>
 
 1. Next Week
 
+::: {.notes}
+http://rin3spring2024.rfortherestofus.com/slides/slides-week-01.html
+:::
+
 # Survey
 
 If you haven't yet completed the pre-survey, [please do so now](https://docs.google.com/forms/d/e/1FAIpQLSdRWALRAzMBCYKMVTCeNx4B8uh9LF8LU2xZZfY4IyDqvOZ8aw/viewform?usp=sf_link).
