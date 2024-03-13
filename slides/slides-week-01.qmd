@@ -60,16 +60,16 @@ If you haven't yet completed the pre-survey, [please do so now](https://docs.goo
 
 # David Keyes
 
-![](assets/david.jpg)
+![](assets/david.jpg){.round-image}
 
 # Libby Heeren
 
-![](assets/libby.jpeg)
+![](assets/libby.jpeg){.round-image}
 
 
 # Gracielle Higino
 
-![](assets/gracielle.png)
+![](assets/gracielle.png){.round-image}
 
 
 # Who Are You? {.inverse}
@@ -240,7 +240,7 @@ Share with the people in your breakout room:
 
 - Location
 
-- Organization
+- Organization (if applicable)
 
 - Where you hope to be in 3 months
 
@@ -256,11 +256,10 @@ Share with the people in your breakout room:
 ## Monday
 
 - Reminder email sent out
+- Co-working session with Libby and Gracielle for first two weeks from 10:00am - 11:00am Pacific time 
 
 ## Wednesday
 
-- Co-working session with Gracielle 10:00am - 11:00am Pacific time
-- Co-working session with Libby 4:00pm - 5:00pm Pacific time
 - Complete course and project assignments (ideally)
 
 ## Code of Conduct
@@ -269,15 +268,13 @@ Share with the people in your breakout room:
 
 ## Course Materials
 
-[![](assets/rin3-course.png)](https://rfortherestofus.com/courses/r-in-3-months-fall-2023)
+[![](assets/rin3-course.png)](https://rfortherestofus.com/courses/r-in-3-months-spring-2024)
 
 ::: {.notes}
-Redoing GH materials
+- Transcripts
+- Redoing GH materials
+- Show see all lessons lesson https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/all-r-in-3-months-spring-2024-videos
 :::
-
-## Captions
-
-{{< video assets/translate-video.mp4 >}}
 
 ## Course Questions
 
@@ -285,7 +282,7 @@ Redoing GH materials
 
 ## Project Assignments
 
-[![](assets/project-assignment.png)](https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/week2-project-assignment)
+[![](assets/project-assignment.jpeg)](https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/week2-project-assignment)
 
 ## Feedback
 
@@ -311,9 +308,7 @@ https://github.com/rfortherestofus/rin3-datasets
 
 - If you need to help to remove personally identifiable information, please let your coach know!
 
-- If you can't share your datasets (or don't have any) you could try looking at [Tidy Tuesday datasets](https://github.com/rfordatascience/tidytuesday).
-
-- There are also some good datasets collected by Vincent Arel-Bundock [here](https://vincentarelbundock.github.io/Rdatasets/articles/data.html)
+- Please check in with your coach via email or on Discord about your data to make sure what you're working with will serve you well
 
 ## Discord
 
@@ -323,20 +318,15 @@ https://github.com/rfortherestofus/rin3-datasets
 
 - Lesson-specific questions on lessons
 
-- Feedback about lessons on lessons as well
-
 - General questions in Discord
-
 
 ## Co-Working Sessions
 
-- Mondays from 10:00am - 11:00am Pacific time ([Zoom link](https://us02web.zoom.us/j/88516792275?pwd=WkFmbXdyTk8yOGVHaCtucTJFUmoydz09))
+- Mondays from 10:00am - 11:00am Pacific time ([Zoom link](https://us02web.zoom.us/j/88977029161?pwd=WmE1NDZNNEM2SkhCeklMUEpPNzl2UT09))
 
 - Review of week's content etc
 
 - Will happen during first two weeks
-
-
 
 ## Live Sessions
 
@@ -355,18 +345,17 @@ https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
 
 - You can schedule 1-on-1 calls with them if you have specific questions:
 
-- [Libby's scheduling link](https://savvycal.com/libby/30min)
+  - [Libby's scheduling link](https://savvycal.com/libby/30min)
 
-- [Gracielle's scheduling link](https://savvycal.com/graciellehigino/30min)
+  - [Gracielle's scheduling link](https://savvycal.com/graciellehigino/30min)
 
 # Getting Started Questions {.inverse}
 
 ::: {.notes}
-- Mistake on lessons
 - Tidyverse loading message
 - read.csv vs read_csv
-- Dependency packages
 - Projects
+- Whether packages are loaded vs installed (packages tab)
 :::
 
 # Next Week {.inverse}
