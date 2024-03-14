@@ -358,9 +358,11 @@ https://us02web.zoom.us/j/87489928701?pwd=YnRhZWp6TnUvRllicmkvV1dVajZBUT09
 
 ::: {.notes}
 - Tidyverse loading message
+- Whether packages are loaded vs installed (packages tab)
+- Dependency packages (see https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/examine-our-data-v2)
 - read.csv vs read_csv
 - Projects
-- Whether packages are loaded vs installed (packages tab)
+- Can you save result of scan_data (see https://rstudio.github.io/pointblank/reference/export_report.html)
 :::
 
 # Next Week {.inverse}
