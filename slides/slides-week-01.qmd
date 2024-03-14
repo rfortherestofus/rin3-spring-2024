@@ -93,6 +93,7 @@ participants <-
 geocoded_participants <-
   participants |>
   drop_na(city) |>
+  mutate(country = replace_na(country, "US")) |> 
   select(city, state_province, country) |>
   geocode(
     city = city,
