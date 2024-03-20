@@ -13,7 +13,7 @@ execute:
   message: false
   warning: false
   cache: false
-  # eval: false
+  eval: false
   echo: true
 title-slide-attributes:
   data-background-image: assets/rru-hex-bg-gradient-dark.svg
@@ -30,6 +30,10 @@ library(janitor)
 library(tidycensus)
 ```
 
+## What is the most surprising thing about R so far?
+
+Please put your answer in the chat!
+
 # Agenda
 
 1. Housekeeping
@@ -41,24 +45,46 @@ library(tidycensus)
 1. Next Week
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-02.html
+http://rin3spring2024.rfortherestofus.com/slides/slides-week-02.html
 :::
 
-# Housekeeping
+# Housekeeping {.inverse}
 
-- Questions on lessons? 
+## Project Assignments
 
-- How were the lessons?
+- If you submitted a project assignment, you should receive an email notification when your coach gives you feedback
 
-- Questions on project assignments?
+- Coaches can answer questions relevant to the topic of the week, but can't answer everything for you
 
-- Discord
+- Instead, they will share resources with you where applicable
+
+## Times and Dates
+
+- For example, many people are asking about times and dates
+
+- Check out:
+
+  - [Chapter 17 of R for Data Science](https://r4ds.hadley.nz/datetimes)
+
+  - [How to Work with Dates and Times in R](https://www.youtube.com/watch?v=ErgdivT_VKs&ab_channel=RfortheRestofUs)
+
+  - [R for the Rest of Us Resources page](https://rfortherestofus.com/resources)
+
+
+
+## Datasets
+
+- Check in with your coach about a good dataset to use!
+
+- [`rin3-datasets` repo](https://github.com/rfortherestofus/rin3-datasets)
+
+## Co-Working Session {.inverse}
 
 # Review of Functions {.inverse}
 
 # Cheatsheets
 
-[Download them for yourself!](https://github.com/rfortherestofus/rin3-fall-2023/blob/main/misc/beginner-cheatsheets.pdf)
+[Download them for yourself!](https://github.com/rfortherestofus/rin3-spring-2024/blob/main/misc/beginner-cheatsheets.pdf)
 
 # `select()` {.inverse}
 
@@ -85,6 +111,93 @@ https://rin3fall2023.rfortherestofus.com/slides-week-02.html
 # {background-video="assets/03_arrange.mp4" background-video-loop="true" background-size="contain"}
 
 # Common Issues and Your Questions {.inverse}
+
+## Check your version of R (and update if necessary)
+
+![](assets/rversion.png)
+
+## Working directories
+
+- RStudio projects set your working directory to be the root of the project (i.e. where you find the `.Rproj` file)
+
+- Using a project, you only need to use **relative** file paths, not **absolute** file paths
+
+- This is easier to type and more reproducible
+
+## Keyboard shortcut to run code
+
+- command + enter (Mac) or control + enter (Windows)
+
+## Difference between native pipe and tidyverse pipe
+
+> Why is there a new native pipe in R, and what is the reason we are using the new native pipe vs. the tidyverse pipe in this course? I currently use the tidyverse pipe in my day-to-day work, so am just curious about whether I should be thinking about switching which pipe I use in that context, too.
+
+## What is the ideal maximum pipeline length?
+
+> Are there any widely accepted "best practices" around pipeline length? In the penguins example for arrange(), there were ~ 5 functions tied together in the pipeline. I can see the efficiency of this in that you only have to call penguins |> one time to implement all of those functions -- however, I personally tend to feel more comfortable implementing code in smaller chunks so I can label exactly what each piece is doing, especially if my code will be shared with others. 
+
+## What is the ideal maximum pipeline length?
+
+> Your pipes are longer than (say) ten steps. In that case, create intermediate objects with meaningful names. That will make debugging easier, because you can more easily check the intermediate results, and it makes it easier to understand your code, because the variable names can help communicate intent.
+
+::: {.small}
+Source: [R for Data Science, 1st Edition](https://arc.net/l/quote/llsbqlfp)
+:::
+
+::: {.notes}
+One caveat is that when get your data into tidy format, you will need to do less piping afterwards
+:::
+
+## When is data real?
+
+> I would like you to help me confirm that once an Object appears in the Environment Panel, it's automatically saved. In this case our object is the `penguins_data`.
+
+. . .
+
+![](assets/where-does-data-live.png)
+
+::: {.notes}
+You will later change your settings so that you only have objects when you run code to create them
+:::
+
+## When is data real?
+
+![](https://rstats.wtf/img/if-you-liked-it-you-should-have-saved-the-source-for-it.jpg)
+
+::: {.small}
+Source: [rstats.wtf](https://rstats.wtf/source-and-blank-slates)
+:::
+
+## Parentheses matter (a lot!)
+
+What's the logic for the "-" (minus) in the second solution below being in its own parenthesis but it's not in the first solution? That tripped me up.
+
+```{r}
+penguins |>
+  select(-species)
+```
+
+```{r}
+penguins |>
+  select(-(bill_length_mm:body_mass_g))
+```
+
+
+## Parentheses matter (a lot!)
+
+> When I run the `read_csv()` code again to deal with the -999 values, it does not completely work. 
+
+. . .
+
+> Looking at the data using `view(penguins_data)`, I still have some -999 values in case 4, as well as some -999.0 values in case 4. 
+
+## Parentheses matter (a lot!)
+
+> I have adapted the code to read `read_csv("penguins_data.csv", na = "-999, -999.0")` to deal with the ones with the decimal point and the zero, but even after that there are still these issues, including in sex_v2
+
+. . .
+
+> I can see that in sex there are some `NA` values now, which means the code has partially worked, I guess. 
 
 ## How R handles NA values
 
@@ -138,7 +251,7 @@ library(tidyverse)
 ```{r}
 #| eval: false
 #| echo: true
-penguins |> 
+penguins |>
   select(island)
 ```
 :::
@@ -148,7 +261,7 @@ penguins |>
 ```{r}
 #| eval: false
 #| echo: true
-penguins |> 
+penguins |>
   filter(island == "Torgersen")
 ```
 
@@ -168,7 +281,7 @@ penguins <- read_csv(file = "data-raw/penguins.csv")
 ```{r}
 #| eval: false
 #| echo: true
-penguins |> 
+penguins |>
   filter(island %in% c("Torgersen", "Biscoe"))
 ```
 
@@ -179,103 +292,11 @@ penguins |>
 ```{r}
 #| eval: false
 #| echo: true
-penguins |> 
+penguins |>
   filter(island %in% c("TorgersenBiscoe"))
 ```
 
 > I get an error message. Maybe the answer is "That’s just how R works," but I’m trying to build a solid mental model for these functions, so if there’s anything more to it, I’d love to better understand. Thanks!
-
-## Crosstabs
-
-```{r}
-#| echo: true
-penguins |> 
-  tabyl(species, island)
-```
-
-## Crosstabs
-
-```{r}
-#| echo: true
-penguins |> 
-  count(species, island)
-```
-
-# `case_when()`
-
-```{r}
-#| echo: true
-penguins |>
-  mutate(weight_category = case_when(
-    body_mass_g > 4000 ~ "Over 4000 grams",
-    body_mass_g < 4000 & body_mass_g >= 3500 ~ "Between 3500 and 4000 grams",
-    body_mass_g < 3500 ~ "Less than 3500 grams"
-  )) |> 
-  select(body_mass_g, weight_category)
-```
-
-
-## How to change view outputs
-
-```{r}
-penguins |>
-  select(species, island) |> 
-  view()
-```
-
-## How to change view outputs
-
-```{r}
-penguins |>
-  select(species, island) |> 
-  print(n = 100)
-```
-
-## Valid column names
-
-## Not valid
-
-```{r}
-#| eval: false
-#| echo: true
-penguins |> 
-  mutate(How cute = "Very cute")
-```
-
-## Valid
-
-```{r}
-#| eval: false
-#| echo: true
-penguins |> 
-  mutate(`How cute` = "Very cute")
-```
-
-## Not valid
-
-```{r}
-#| eval: false
-#| echo: true
-penguins |> 
-  mutate(3 = "Very cute")
-```
-
-## Valid
-
-```{r}
-#| eval: false
-#| echo: true
-penguins |> 
-  mutate(`3` = "Very cute")
-```
-
-## `clean_names()`
-
-Use `clean_names()` to get valid and easy to work with column names
-
-## Sequential summaries
-
-> I'm just curious, so feel free to ignore if this is covered later. But, you mentioned that piping sequential summarizes into each other doesn't work to get a single table with multiple columns. Is there a way to do that? I didn't know if mutate would be able to handle taking in a tibble from summarize? I was guessing there must be some other way to combine tibbles? For example, if you were getting the mean bill length from the penguins data, but also wanted to get a mean bill length from some other bird dataset, and have these in the same table side by side (I googled it and it looked like there's a merge() function, but I didn't know if that was the best way to go about it in this case)
 
 # Typos happen to everone
 
@@ -288,15 +309,19 @@ Use `clean_names()` to get valid and easy to work with column names
 #| eval: false
 #| echo: true
 
-get_acs(year = 2019,
-        geography = "county",
-        geometry = TRUE,
-        state =  "OR",
-        variables = "B01003_001") %>% 
-  clean_names() %>% 
-  mutate(name = str_remove(name, " County")) %>% 
-  rename(poulation = estimate,
-         county = name) %>% 
+get_acs(
+  year = 2019,
+  geography = "county",
+  geometry = TRUE,
+  state = "OR",
+  variables = "B01003_001"
+) %>%
+  clean_names() %>%
+  mutate(name = str_remove(name, " County")) %>%
+  rename(
+    poulation = estimate,
+    county = name
+  ) %>%
   select(county, population)
 ```
 :::
@@ -307,9 +332,4 @@ get_acs(year = 2019,
 1. Course assignment: complete data viz lessons
 
 1. Project assignment: make a graph from your data
-
-::: {.notes}
-Talk about when need to finalize project dataset
-:::
-
 
