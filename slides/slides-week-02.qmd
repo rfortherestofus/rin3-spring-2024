@@ -50,6 +50,8 @@ http://rin3spring2024.rfortherestofus.com/slides/slides-week-02.html
 
 # Housekeeping {.inverse}
 
+## Any Issues with the Website? {.inverse}
+
 ## Project Assignments
 
 - If you submitted a project assignment, you should receive an email notification when your coach gives you feedback
@@ -82,6 +84,12 @@ http://rin3spring2024.rfortherestofus.com/slides/slides-week-02.html
 
 # Review of Functions {.inverse}
 
+::: {.notes}
+- Does this mean it’s possible to import a ready made code/Rscript file, maybe customize it to fit a particular dataset & operations?… 🤩I’m totally loving this
+
+- Show obtn cleaning
+:::
+
 # Cheatsheets
 
 [Download them for yourself!](https://github.com/rfortherestofus/rin3-spring-2024/blob/main/misc/beginner-cheatsheets.pdf)
@@ -96,21 +104,43 @@ http://rin3spring2024.rfortherestofus.com/slides/slides-week-02.html
 
 # `filter()` {.inverse}
 
-# {background-video="assets/01_filter_1.mp4" background-video-loop="true" background-size="contain"}
+<!-- # {background-video="assets/01_filter_1.mp4" background-video-loop="true" background-size="contain"} -->
 
 # `summarize()` {.inverse}
 
-# {background-video="assets/05_summarise.mp4" background-video-loop="true" background-size="contain"}
+<!-- # {background-video="assets/05_summarise.mp4" background-video-loop="true" background-size="contain"} -->
 
 # `group_by() |> summarize()` {.inverse}
 
-# {background-video="assets/06_summarise_grouped.mp4" background-video-loop="true" background-size="contain"}
+<!-- # {background-video="assets/06_summarise_grouped.mp4" background-video-loop="true" background-size="contain"} -->
 
 # `arrange()` {.inverse}
 
-# {background-video="assets/03_arrange.mp4" background-video-loop="true" background-size="contain"}
+<!-- # {background-video="assets/03_arrange.mp4" background-video-loop="true" background-size="contain"} -->
 
 # Common Issues and Your Questions {.inverse}
+
+## Packages
+
+. . .
+
+**Install** packages once per **computer**
+
+. . .
+
+```
+install.packages("tidyverse")
+```
+
+. . .
+
+**Load** packages once per **session**
+
+. . .
+
+```
+library(tidyverse)
+```
 
 ## Check your version of R (and update if necessary)
 
@@ -166,6 +196,10 @@ You will later change your settings so that you only have objects when you run c
 
 ::: {.small}
 Source: [rstats.wtf](https://rstats.wtf/source-and-blank-slates)
+:::
+
+::: {.notes}
+https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/an-important-workflow-tip-v2
 :::
 
 ## Parentheses matter (a lot!)

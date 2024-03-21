@@ -8,7 +8,7 @@
 <link href="slides-week-02_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides-week-02_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="slides-week-02_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-99.9.9">
+  <meta name="generator" content="quarto-1.5.25">
 
   <title>R in 3 Months Week 2 (Data Wrangling and Analysis)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -428,6 +428,9 @@
 <h1>Housekeeping</h1>
 
 </section>
+<section id="any-issues-with-the-website" class="slide level2 inverse center">
+<h2>Any Issues with the Website?</h2>
+</section>
 <section id="project-assignments" class="slide level2 center">
 <h2>Project Assignments</h2>
 <ul>
@@ -460,7 +463,22 @@
 </section></section>
 <section id="review-of-functions" class="title-slide slide level1 inverse center">
 <h1>Review of Functions</h1>
-
+<aside class="notes">
+<ul>
+<li><p>Does this mean it’s possible to import a ready made code/Rscript file, maybe customize it to fit a particular dataset &amp; operations?… 🤩I’m totally loving this</p></li>
+<li><p>Show obtn cleaning</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section id="cheatsheets" class="title-slide slide level1 center">
@@ -532,6 +550,21 @@
 <section id="common-issues-and-your-questions" class="title-slide slide level1 inverse center">
 <h1>Common Issues and Your Questions</h1>
 
+</section>
+<section id="packages" class="slide level2 center">
+<h2>Packages</h2>
+<div class="fragment">
+<p><strong>Install</strong> packages once per <strong>computer</strong></p>
+</div>
+<div class="fragment">
+<pre><code>install.packages("tidyverse")</code></pre>
+</div>
+<div class="fragment">
+<p><strong>Load</strong> packages once per <strong>session</strong></p>
+</div>
+<div class="fragment">
+<pre><code>library(tidyverse)</code></pre>
+</div>
 </section>
 <section id="check-your-version-of-r-and-update-if-necessary" class="slide level2 center">
 <h2>Check your version of R (and update if necessary)</h2>
@@ -613,17 +646,30 @@
 <img data-src="https://rstats.wtf/img/if-you-liked-it-you-should-have-saved-the-source-for-it.jpg" class="r-stretch"><div class="small">
 <p>Source: <a href="https://rstats.wtf/source-and-blank-slates">rstats.wtf</a></p>
 </div>
+<aside class="notes">
+<p>https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/an-important-workflow-tip-v2</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="parentheses-matter-a-lot" class="slide level2 center">
 <h2>Parentheses matter (a lot!)</h2>
 <p>What’s the logic for the “-” (minus) in the second solution below being in its own parenthesis but it’s not in the first solution? That tripped me up.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>(bill_length_mm<span class="sc">:</span>body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>(bill_length_mm<span class="sc">:</span>body_mass_g))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="parentheses-matter-a-lot-1" class="slide level2 center">
@@ -690,35 +736,35 @@
 <section id="needed-to-refer-to-non-existent-things" class="slide level2 center">
 <h2>Needed to refer to non-existent things</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="not-needed-to-refer-to-existing-things" class="slide level2 center">
 <h2>Not needed to refer to existing things</h2>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p><br></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href=""></a>  <span class="fu">select</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href=""></a>  <span class="fu">select</span>(island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
 <section id="needed-when-youre-referring-to-text" class="slide level2 center">
 <h2>Needed when you’re referring to text</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">==</span> <span class="st">"Torgersen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">==</span> <span class="st">"Torgersen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="or-the-name-of-a-file" class="slide level2 center">
 <h2>Or the name of a file</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data-raw/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data-raw/penguins.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="in-operator" class="slide level2 center">
@@ -727,8 +773,8 @@
 <p>I’m wondering if you know why one needs to concatenate multiple observations in the filter function. For example, here’s a correct use of filter:</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="in-operator-1" class="slide level2 center">
@@ -737,8 +783,8 @@
 <p>From what I understand of the concatenate function (from Excel), wouldn’t that basically mean R is looking at each observation in island and seeing if that observation can be found anywhere inside “TorgersenBiscoe”? But when I try it without concatenating by doing this:</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"TorgersenBiscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href=""></a>  <span class="fu">filter</span>(island <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"TorgersenBiscoe"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote>
 <p>I get an error message. Maybe the answer is “That’s just how R works,” but I’m trying to build a solid mental model for these functions, so if there’s anything more to it, I’d love to better understand. Thanks!</p>
@@ -753,20 +799,20 @@
 <h1>Typos happen to everone</h1>
 <div class="large">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">get_acs</span>(</span>
-<span id="cb10-2"><a href=""></a>  <span class="at">year =</span> <span class="dv">2019</span>,</span>
-<span id="cb10-3"><a href=""></a>  <span class="at">geography =</span> <span class="st">"county"</span>,</span>
-<span id="cb10-4"><a href=""></a>  <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb10-5"><a href=""></a>  <span class="at">state =</span> <span class="st">"OR"</span>,</span>
-<span id="cb10-6"><a href=""></a>  <span class="at">variables =</span> <span class="st">"B01003_001"</span></span>
-<span id="cb10-7"><a href=""></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-8"><a href=""></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb10-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-10"><a href=""></a>  <span class="fu">rename</span>(</span>
-<span id="cb10-11"><a href=""></a>    <span class="at">poulation =</span> estimate,</span>
-<span id="cb10-12"><a href=""></a>    <span class="at">county =</span> name</span>
-<span id="cb10-13"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb10-14"><a href=""></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">get_acs</span>(</span>
+<span id="cb12-2"><a href=""></a>  <span class="at">year =</span> <span class="dv">2019</span>,</span>
+<span id="cb12-3"><a href=""></a>  <span class="at">geography =</span> <span class="st">"county"</span>,</span>
+<span id="cb12-4"><a href=""></a>  <span class="at">geometry =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb12-5"><a href=""></a>  <span class="at">state =</span> <span class="st">"OR"</span>,</span>
+<span id="cb12-6"><a href=""></a>  <span class="at">variables =</span> <span class="st">"B01003_001"</span></span>
+<span id="cb12-7"><a href=""></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-8"><a href=""></a>  <span class="fu">clean_names</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">str_remove</span>(name, <span class="st">" County"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a href=""></a>  <span class="fu">rename</span>(</span>
+<span id="cb12-11"><a href=""></a>    <span class="at">poulation =</span> estimate,</span>
+<span id="cb12-12"><a href=""></a>    <span class="at">county =</span> name</span>
+<span id="cb12-13"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-14"><a href=""></a>  <span class="fu">select</span>(county, population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
