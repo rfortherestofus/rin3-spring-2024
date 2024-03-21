@@ -16,3 +16,5 @@ html_to_pdf <- function(html_file) {
 }
 
 walk(slides_files, html_to_pdf)
+
+html_to_pdf("slides-week-02.html")
