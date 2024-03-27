@@ -41,14 +41,30 @@ library(palmerpenguins)
 5.  Next week
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-03.html
+.rin3slidehttp://rin3spring2024.rfortherestofus.com/slides/slides-week-03.html
 :::
 
 
 
 # Housekeeping
 
-Website issues (sorry!)
+- Website issues
+
+- You can use three back ticks to make code blocks on Discord and the website comments sections
+
+# Data Viz Tips
+
+1. Is there a "correct" order to put geoms, scales, themes, etc?
+
+1. Width of bars in bar charts
+
+1. How to center text in bar charts
+
+1. Ordering bar charts
+
+1. Wrapping long text in charts
+
+1. How to adjust axis text labels
 
 # Data Viz Exercise {.inverse}
 
@@ -57,64 +73,45 @@ Website issues (sorry!)
 ![](assets/median-income-example.png)
 
 ::: notes
-https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/median-income-viz.R
+https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2024/main/misc/median-income-viz.R
 :::
 
-# Data Viz Tips
+# Data Viz Live Coding
 
-1.  Certain `geoms` require certain aesthetic properties
+- Let's make a population pyramid!
 
-2.  Ordering bar charts
+# Typos Happen to Everyone
 
-3.  Wrapping long text in charts
+![](assets/david-asking-for-help.png)
 
-4.  Font size
+# Typos Happen to Everyone
 
-5.  How to center text in bar charts
+::: {.large}
+```{r}
+#| eval: false
+#| echo: true
 
-6.  Width of bars in bar charts
-
-# General Tips {.inverse}
-
-## Tip #1: Good Script Etiquette
-
-::: {.notes}
-all library() calls at the top, no install.packages() in scripts and why, no rm(list=ls()) and why (unless you will cover this already), and no setwd() and why
-:::
-
-## Tip #2: Project Management and Naming Conventions
-
-::: {.notes}
-There is one other general thing I'd put under Gracielle's naming conventions area: I'm seeing people elect to use backticks instead of cleaning up their column names, and I'd love to heavily discourage that 
-:::
-
-## Tip #3: Commenting Best Practices
-
-::: {.notes}
-Comments for yourself while learning - what each function does
-Comments for your coaches and yourself - what each query “should” do in plain, specific language so we can help
-Comments for colleagues and yourself - WHY you’re doing what you’re doing
-Bonus tip: this time next month, you won’t know how any of the code you wrote today works or why you did any of it. Comments are you helping yourself as much as they’re you helping others
-:::
-
-## Tip #4: Data Needs Context
-
-::: {.notes}
-Why it’s good to share data dictionaries, data sources, or readmes (like tidytuesday has!) along with data sets you use (because it’s hard for anyone to help you with code when they don’t know what the data means).
-When you’re learning and using public data, ok to put a link in comment to where you got the data or a readme
-When you’re sharing data with colleagues, great to have a readme.txt file inside your project folder or data folder that explains your data
-:::
-
-## Tip #5: There is No Right Way to Do Anything
-
-::: {.notes}
-My last "general" tip I might just add verbally at the end is that there is no "right way" to do anything in programming. I've had some students who are just like me when I was learning, they want to know if they did it the right way, the absolute best way, the MOST efficient way. But there is no right way! There are many, many ways to do the same things in programming, and however you get it to work is the right way for now. If it runs, it runs, and if you learn something later that improves it, that's great.
+get_acs(
+  year = 2019,
+  geography = "county",
+  geometry = TRUE,
+  state = "OR",
+  variables = "B01003_001"
+) %>%
+  clean_names() %>%
+  mutate(name = str_remove(name, " County")) %>%
+  rename(
+    poulation = estimate,
+    county = name
+  ) %>%
+  select(county, population)
+```
 :::
 
 # Next Week
 
 You'll be learning about Quarto!
 
--   Course assignment: learn the basics of Quarto
+- Course assignment: learn the basics of Quarto
 
--   Project assignment: take what you've done so far and turn it into a Quarto document
+- Project assignment: take what you've done so far and turn it into a Quarto document

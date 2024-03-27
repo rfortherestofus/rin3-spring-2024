@@ -1,0 +1,37 @@
+age,sex,population
+0 to 4,male,189854
+5 to 9,male,193642
+10 to 14,male,200901
+15 to 19,male,202850
+20 to 24,male,195375
+25 to 29,male,195350
+30 to 34,male,198749
+35 to 39,male,211524
+40 to 44,male,213733
+45 to 49,male,202862
+50 to 54,male,193772
+55 to 59,male,199740
+60 to 64,male,187402
+65 to 69,male,173146
+70 to 74,male,136456
+75 to 79,male,102587
+80 to 84,male,81028
+85 plus,male,81683
+0 to 4,female,190851
+5 to 9,female,194511
+10 to 14,female,201234
+15 to 19,female,203359
+20 to 24,female,199705
+25 to 29,female,199602
+30 to 34,female,203730
+35 to 39,female,212747
+40 to 44,female,213603
+45 to 49,female,198690
+50 to 54,female,186402
+55 to 59,female,185402
+60 to 64,female,171177
+65 to 69,female,163577
+70 to 74,female,131491
+75 to 79,female,106394
+80 to 84,female,93216
+85 plus,female,117186
