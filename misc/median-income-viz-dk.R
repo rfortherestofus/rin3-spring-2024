@@ -17,14 +17,19 @@ median_income_yamhill <- median_income |>
   filter(geography %in% c("Yamhill", "Oregon"))
 
 ggplot(data = median_income_yamhill,
-       aes(x = TODO,
-           y = TODO,
-           label = TODO,
-           fill = TODO)) +
+       aes(x = amount,
+           y = geography,
+           label = amount_formatted,
+           fill = geography)) +
   geom_col(show.legend = FALSE) +
-  geom_text(color = TODO,
-            hjust = TODO) +
+  geom_text(color = "white",
+            hjust = 1.2) +
+  geom_text(aes(
+    x = 10000,
+    label = geography
+  ),
+  color = "white") +
   scale_fill_manual(values = c(
-    TODO
+    "gray", "darkgreen"
   )) +
-  theme_TODO()
+  theme_void()

@@ -17,12 +17,34 @@ data("gapminder")
 
 # Dropping Points in Scatterplots ----------------------------------------
 
-penguins |> 
-  drop_na(flipper_length_mm, body_mass_g) |> 
-  ggplot(data = penguins,
-         mapping = aes(x = flipper_length_mm,
-                       y = body_mass_g))+
-  geom_point()
+penguins |>
+  drop_na(flipper_length_mm, body_mass_g) |>
+  ggplot(mapping = aes(
+    x = flipper_length_mm,
+    y = body_mass_g,
+    color = island
+  )) +
+  geom_point() +
+  scale_color_manual(
+    values = c(
+      "Biscoe" = "grey90",
+      "Dream" = "grey90",
+      "Torgersen" = "red"
+    )
+  ) +
+  theme_minimal()
+
+ggplot(
+  data = penguins,
+  mapping = aes(
+    x = flipper_length_mm,
+    y = body_mass_g
+  )
+) +
+  geom_point() +
+  scale_x_continuous(
+    limits = c(170, 220)
+  )
 
 # Bar Chart Width ---------------------------------------------------------
 
@@ -34,7 +56,7 @@ ggplot(
     label = mean_bill_length
   )
 ) +
-  geom_col() +
+  geom_col(width = 0.5) +
   theme_minimal()
 
 # Center Text in Bar Chart ------------------------------------------------
@@ -42,13 +64,15 @@ ggplot(
 ggplot(
   data = penguins_bill_length_by_island,
   aes(
-    x = island,
+    x = 1,
     y = mean_bill_length,
-    label = mean_bill_length
+    label = mean_bill_length,
+    fill = island
   )
 ) +
   geom_col() +
-  geom_text() +
+  geom_text(position = position_stack(vjust = 0.5)) +
+  coord_flip() +
   theme_minimal()
 
 
@@ -57,10 +81,20 @@ ggplot(
 ggplot(
   data = penguins_bill_length_by_island,
   aes(
-    x = island,
+    x = reorder(island, mean_bill_length),
     y = mean_bill_length
   )
 ) +
+  geom_col()
+
+penguins_bill_length_by_island |>
+  mutate(island = fct_reorder(island, mean_bill_length)) |>
+  ggplot(
+    aes(
+      x = island,
+      y = mean_bill_length
+    )
+  ) +
   geom_col()
 
 
@@ -70,7 +104,8 @@ ggplot(
   data = gapminder,
   aes(
     x = year,
-    y = lifeExp
+    y = lifeExp,
+    group = country
   )
 ) +
   geom_line() +
@@ -93,6 +128,8 @@ ggplot(
 
 # Adjust Axis Text Labels -------------------------------------------------
 
+penguins_bill_length_by_island
+
 ggplot(
   data = penguins_bill_length_by_island,
   aes(
@@ -101,8 +138,24 @@ ggplot(
     label = mean_bill_length
   )
 ) +
-  scale_x_discrete(
-    labels = c("1", "2", "3")
-  ) +
   geom_col() +
+  scale_x_discrete(
+    labels = c("Island 1", "Island 2", "Island 3")
+  ) +
+  theme_minimal()
+
+
+# Adjusting Legends -------------------------------------------------------
+
+ggplot(
+  data = penguins_bill_length_by_island,
+  aes(
+    x = island,
+    y = mean_bill_length,
+    label = mean_bill_length,
+    color = island
+  )
+) +
+  geom_col(show.legend = FALSE) +
+  geom_text() +
   theme_minimal()

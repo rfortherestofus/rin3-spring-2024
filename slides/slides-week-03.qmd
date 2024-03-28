@@ -28,6 +28,10 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
+## What is the most confusing thing about ggplot?
+
+Please put your answer in the chat!
+
 # Agenda
 
 1. Housekeeping
@@ -43,8 +47,6 @@ library(palmerpenguins)
 ::: {.notes}
 https://rin3spring2024.rfortherestofus.com/slides/slides-week-03.html
 :::
-
-
 
 # Housekeeping
 
@@ -69,6 +71,8 @@ https://rin3spring2024.rfortherestofus.com/slides/slides-week-03.html
 1. Wrapping long text in charts
 
 1. How to adjust axis text labels
+
+1. Adjusting legends
 
 # Data Viz Exercise {.inverse}
 
