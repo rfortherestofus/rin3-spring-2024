@@ -4,7 +4,6 @@ library(tidyverse)
 library(gapminder)
 
 
-
 # Import Data -------------------------------------------------------------
 
 penguins <- read_csv("data-raw/penguins.csv")
@@ -14,6 +13,44 @@ penguins_bill_length_by_island <- penguins |>
   summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))
 
 data("gapminder")
+
+
+# Dropping Points in Scatterplots ----------------------------------------
+
+penguins |> 
+  drop_na(flipper_length_mm, body_mass_g) |> 
+  ggplot(data = penguins,
+         mapping = aes(x = flipper_length_mm,
+                       y = body_mass_g))+
+  geom_point()
+
+# Bar Chart Width ---------------------------------------------------------
+
+ggplot(
+  data = penguins_bill_length_by_island,
+  aes(
+    x = island,
+    y = mean_bill_length,
+    label = mean_bill_length
+  )
+) +
+  geom_col() +
+  theme_minimal()
+
+# Center Text in Bar Chart ------------------------------------------------
+
+ggplot(
+  data = penguins_bill_length_by_island,
+  aes(
+    x = island,
+    y = mean_bill_length,
+    label = mean_bill_length
+  )
+) +
+  geom_col() +
+  geom_text() +
+  theme_minimal()
+
 
 # Reordering Bar Charts ---------------------------------------------------
 
@@ -52,34 +89,6 @@ ggplot(
 ) +
   geom_line() +
   facet_wrap(vars(country_wrapped))
-
-# Center Text in Bar Chart ------------------------------------------------
-
-ggplot(
-  data = penguins_bill_length_by_island,
-  aes(
-    x = island,
-    y = mean_bill_length,
-    label = mean_bill_length
-  )
-) +
-  geom_col() +
-  geom_text() +
-  theme_minimal()
-
-
-# Bar Chart Width ---------------------------------------------------------
-
-ggplot(
-  data = penguins_bill_length_by_island,
-  aes(
-    x = island,
-    y = mean_bill_length,
-    label = mean_bill_length
-  )
-) +
-  geom_col() +
-  theme_minimal()
 
 
 # Adjust Axis Text Labels -------------------------------------------------

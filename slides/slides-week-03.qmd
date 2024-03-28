@@ -30,18 +30,18 @@ library(palmerpenguins)
 
 # Agenda
 
-1.  Housekeeping
+1. Housekeeping
 
-2.  Data viz exercise
+1. Data viz tips
 
-3.  Data viz tips
+1. Data viz exercise
 
-4.  General tips
+1. Data viz live coding
 
-5.  Next week
+1. Next week
 
 ::: {.notes}
-.rin3slidehttp://rin3spring2024.rfortherestofus.com/slides/slides-week-03.html
+https://rin3spring2024.rfortherestofus.com/slides/slides-week-03.html
 :::
 
 
@@ -52,9 +52,13 @@ library(palmerpenguins)
 
 - You can use three back ticks to make code blocks on Discord and the website comments sections
 
+- Live session next week and catch-up week on April 11
+
 # Data Viz Tips
 
 1. Is there a "correct" order to put geoms, scales, themes, etc?
+
+1. Dropping points in scatterplots
 
 1. Width of bars in bar charts
 
