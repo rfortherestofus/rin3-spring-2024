@@ -8,7 +8,7 @@
 <link href="slides-week-04_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides-week-04_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="slides-week-04_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.5.25">
 
   <title>R in 3 Months Week 4 (Quarto)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -69,7 +69,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -83,7 +83,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -220,7 +220,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -399,13 +400,14 @@
 <h1>Agenda</h1>
 <ol type="1">
 <li class="fragment"><p>Housekeeping</p></li>
+<li class="fragment"><p>Data Wrangling and Data Viz Questions</p></li>
 <li class="fragment"><p>Quarto Exercise</p></li>
 <li class="fragment"><p>Quarto Tips</p></li>
 <li class="fragment"><p>General Tip</p></li>
 <li class="fragment"><p>Next week</p></li>
 </ol>
 <aside class="notes">
-<p>https://rin3fall2023.rfortherestofus.com/slides-week-04.html</p>
+<p>.rin3slidehttps://rin3spring2024.rfortherestofus.com/slides/slides-week-04.html</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -422,31 +424,18 @@
 <section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
 <ol type="1">
-<li class="fragment"><p>When you submit project assignments, in order to keep the workload manageable for Libby and Gracielle, please limit yourself to 1 or 2 questions</p></li>
-<li class="fragment"><p>If you have additional or more advanced questions you want help with, please post in Discord!</p></li>
+<li class="fragment"><p>Anything better or worse on the website/videos?</p></li>
+<li class="fragment"><p>Reminder that next week is a catch-up week</p></li>
 </ol>
+</section>
+
+<section id="questions-on-data-wrangling-or-data-viz" class="title-slide slide level1 inverse center">
+<h1>Questions on Data Wrangling or Data Viz?</h1>
+
 </section>
 
 <section id="quarto" class="title-slide slide level1 inverse center">
 <h1>Quarto</h1>
-
-</section>
-
-<section>
-<section id="quarto-exercise" class="title-slide slide level1 inverse center">
-<h1>Quarto Exercise</h1>
-
-</section>
-<section id="quarto-exercise-1" class="slide level2 center">
-<h2>Quarto Exercise</h2>
-<ol type="1">
-<li class="fragment"><p>Copy the code from <a href="https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/no-render.qmd">this Quarto document</a>. Figure out why it won’t render and change it so that it will!</p></li>
-<li class="fragment"><p>Copy the code from <a href="https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/guess-what.qmd">this second Quarto document</a>. There are a series of questions in it. Tackle them one by one, making changes to the document as you do so.</p></li>
-</ol>
-</section></section>
-<section>
-<section id="quarto-tips" class="title-slide slide level1 inverse center">
-<h1>Quarto Tips</h1>
 <aside class="notes">
 <p>Talk about parameterized reporting making it worth it</p>
 <style type="text/css">
@@ -461,6 +450,24 @@
           display:block!important;
       }</style></aside>
 </section>
+
+<section>
+<section id="quarto-exercise" class="title-slide slide level1 inverse center">
+<h1>Quarto Exercise</h1>
+
+</section>
+<section id="quarto-exercise-1" class="slide level2 center">
+<h2>Quarto Exercise</h2>
+<ol type="1">
+<li class="fragment"><p>Copy the code from <a href="https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2024/main/misc/no-render.qmd">this Quarto document</a>. Figure out why it won’t render and change it so that it will!</p></li>
+<li class="fragment"><p>Copy the code from <a href="https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2024/main/misc/guess-what.qmd">this second Quarto document</a>. There are a series of questions in it. Tackle them one by one, making changes to the document as you do so.</p></li>
+</ol>
+</section></section>
+<section>
+<section id="quarto-tips" class="title-slide slide level1 inverse center">
+<h1>Quarto Tips</h1>
+
+</section>
 <section id="markdown-text-shows-up-in-many-places" class="slide level2 center">
 <h2>Markdown Text Shows Up in Many Places!</h2>
 <ol type="1">
@@ -468,34 +475,120 @@
 <li class="fragment"><p>Lesson comments</p></li>
 </ol>
 </section>
-<section id="quarto-tips-1" class="slide level2 center">
-<h2>Quarto Tips</h2>
+<section id="indented-lists" class="slide level2 center">
+<h2>Indented Lists</h2>
+<blockquote>
+<p>How do you add subitems in lists? I tried my best but I am not liking how my subitems show up as a dash.</p>
+</blockquote>
+<ol type="1">
+<li class="fragment"><p>List item</p>
+<ol type="1">
+<li class="fragment">Indented list item</li>
+</ol></li>
+</ol>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>List item</p>
+<ul>
+<li class="fragment">Indented list item</li>
+</ul></li>
+</ul>
+</div>
 </section>
 <section id="how-to-structure-your-quarto-documents" class="slide level2 center">
 <h2>How to structure your Quarto documents</h2>
 <ol type="1">
 <li class="fragment"><p>Load packages at top</p></li>
 <li class="fragment"><p>Import data at top</p></li>
-<li class="fragment"><p>Code chunks used to make outputs (graphs, tables, maps, etc)</p></li>
+<li class="fragment"><p>Code chunks used throughout to make outputs (graphs, tables, maps, etc)</p></li>
 <li class="fragment"><p>I also do data cleaning/tidying in a separate R script file (you’ll learn about this soon)</p></li>
 </ol>
+<aside class="notes">
+<p>Show week 1 slides</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="how-to-load-code-in-r-script-files" class="slide level2 center">
-<h2>How to load code in R script files</h2>
+<section id="how-i-use-quarto-documents-is-not-how-you-have-to-use-quarto-documents" class="slide level2 center">
+<h2>How I use Quarto documents is not how you have to use Quarto documents!</h2>
+<div class="fragment">
+<blockquote>
+<p>All the content about Quarto has been extremely helpful – and it’s also made me realize that I have been using R Markdown differently than intended.</p>
+</blockquote>
+</div>
+<div class="fragment">
+<p>Many people do data cleaning and exploratory data analysis in Quarto documents!</p>
+<aside class="notes">
+<p>Give example of financial document I’m going to make</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
 </section>
 <section id="how-to-change-the-size-of-plots-in-quarto-documents" class="slide level2 center">
 <h2>How to change the size of plots in Quarto documents</h2>
-<aside class="notes">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span> </span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island, </span>
-<span id="cb1-4"><a href="#cb1-4"></a>             <span class="at">y =</span> n)) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="slides-week-04_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href=""></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island, </span>
+<span id="cb1-4"><a href=""></a>             <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides-week-04_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="how-to-change-the-size-of-plots-in-quarto-documents-1" class="slide level2 center">
+<h2>How to change the size of plots in Quarto documents</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href=""></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href=""></a><span class="in">#| echo: true</span></span>
+<span id="cb2-3"><a href=""></a><span class="in">#| fig-height: 1</span></span>
+<span id="cb2-4"><a href=""></a><span class="in">penguins |&gt; </span></span>
+<span id="cb2-5"><a href=""></a><span class="in">  count(island) |&gt; </span></span>
+<span id="cb2-6"><a href=""></a><span class="in">  ggplot(aes(x = island, </span></span>
+<span id="cb2-7"><a href=""></a><span class="in">             y = n)) +</span></span>
+<span id="cb2-8"><a href=""></a><span class="in">  geom_col()</span></span>
+<span id="cb2-9"><a href=""></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="how-to-change-the-size-of-plots-in-quarto-documents-2" class="slide level2 center">
+<h2>How to change the size of plots in Quarto documents</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island, </span>
+<span id="cb3-4"><a href=""></a>             <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb3-5"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides-week-04_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="how-to-make-multi-column-layouts-in-quarto-documents" class="slide level2 center">
+<h2>How to make multi-column layouts in Quarto documents</h2>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Column 1</p>
+</div><div class="column" style="width:50%;">
+<p>Column 2</p>
 </div>
 </div>
+<aside class="notes">
+<p>https://quarto.org/docs/presentations/powerpoint.html#multiple-columns</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -507,26 +600,33 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</div>
 </section>
-<section id="how-to-make-multi-column-layouts-in-quarto-documents" class="slide level2 center">
+<section id="how-to-make-multi-column-layouts-in-quarto-documents-1" class="slide level2 center">
 <h2>How to make multi-column layouts in Quarto documents</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href=""></a>:::: {.columns}</span>
+<span id="cb4-2"><a href=""></a></span>
+<span id="cb4-3"><a href=""></a>::: {.column width="50%"}</span>
+<span id="cb4-4"><a href=""></a>Column 1</span>
+<span id="cb4-5"><a href=""></a>:::</span>
+<span id="cb4-6"><a href=""></a></span>
+<span id="cb4-7"><a href=""></a>::: {.column width="50%"}</span>
+<span id="cb4-8"><a href=""></a>Column 2</span>
+<span id="cb4-9"><a href=""></a>:::</span>
+<span id="cb4-10"><a href=""></a></span>
+<span id="cb4-11"><a href=""></a>::::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="how-to-change-the-look-and-feel-of-quarto-documents" class="slide level2 center">
 <h2>How to change the look and feel of Quarto documents</h2>
-<aside class="notes">
-<p>Custom CSS: https://quarto.org/docs/output-formats/html-basics.html#css-styles</p>
-<p>HTML Themes: https://quarto.org/docs/output-formats/html-themes.html</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<ul>
+<li class="fragment"><p>Depends on output format</p></li>
+<li class="fragment"><p>For HTML, <a href="https://quarto.org/docs/output-formats/html-themes.html">use a combination of themes and custom CSS</a></p></li>
+<li class="fragment"><p>For Word, use <a href="https://quarto.org/docs/output-formats/ms-word-templates.html">reference documents</a></p></li>
+<li class="fragment"><p>For PDF, check out <a href="https://quarto.org/docs/output-formats/typst.html"><code>typst</code> format</a></p></li>
+<li class="fragment"><p>There are lessons on each of these later in R in 3 Months!</p></li>
+</ul>
 </section></section>
 <section>
 <section id="general-tip" class="title-slide slide level1 inverse center">
@@ -538,15 +638,38 @@
 <blockquote>
 <p>I looked into the geomtextpath package and even found a fairly helpful guide (https://cran.r-project.org/web/packages/geomtextpath/vignettes/geomtextpath.html) but I’m still at a loss on how to incorporate the names into the lines themselves. I wish I were better at understanding the Help guides.</p>
 </blockquote>
+<div class="fragment">
+<ul>
+<li class="fragment"><a href="https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/reading-documentation-pages">I’ve added a lesson from previous coach Charlie on reading documentation pages</a></li>
+</ul>
+<aside class="notes">
+<p>https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/reading-documentation-pages</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="any-other-quarto-questions" class="slide level2 inverse center">
+<h2>Any Other Quarto Questions?</h2>
 </section></section>
 <section id="next-week" class="title-slide slide level1 center">
 <h1>Next Week</h1>
 <ul>
-<li class="fragment"><p>Catch-up week! No live session but co-working sessions are happening.</p></li>
+<li class="fragment"><p>Catch-up week! No live session or co-working sessions are happening, but please reach out to your coach for any help you may need!</p></li>
 <li class="fragment"><p>For following week, you will be learning to use Git and GitHub. Lessons are up now so you can start whenever you would like to!</p></li>
 </ul>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -575,7 +698,6 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -830,18 +952,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -873,11 +984,50 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      function tippyHover(el, contentFn) {
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -887,8 +1037,17 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -902,7 +1061,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

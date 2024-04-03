@@ -32,6 +32,8 @@ library(palmerpenguins)
 
 1. Housekeeping
 
+1. Data Wrangling and Data Viz Questions
+
 1. Quarto Exercise
 
 1. Quarto Tips
@@ -41,34 +43,37 @@ library(palmerpenguins)
 1. Next week
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-04.html
+.rin3slidehttps://rin3spring2024.rfortherestofus.com/slides/slides-week-04.html
 :::
 
 
 
 # Housekeeping
 
-1. When you submit project assignments, in order to keep the workload manageable for Libby and Gracielle, please limit yourself to 1 or 2 questions
+1. Anything better or worse on the website/videos?
 
-1. If you have additional or more advanced questions you want help with, please post in Discord!
+1. Reminder that next week is a catch-up week
+
+# Questions on Data Wrangling or Data Viz? {.inverse}
+
 
 # Quarto {.inverse}
+
+::: {.notes}
+Talk about parameterized reporting making it worth it
+:::
 
 # Quarto Exercise {.inverse}
 
 ## Quarto Exercise
 
-1. Copy the code from [this Quarto document](https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/no-render.qmd). Figure out why it won't render and change it so that it will!
+1. Copy the code from [this Quarto document](https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2024/main/misc/no-render.qmd). Figure out why it won't render and change it so that it will!
 
-1. Copy the code from [this second Quarto document](https://raw.githubusercontent.com/rfortherestofus/rin3-fall-2023/main/misc/guess-what.qmd). There are a series of questions in it. Tackle them one by one, making changes to the document as you do so.
-
-
+1. Copy the code from [this second Quarto document](https://raw.githubusercontent.com/rfortherestofus/rin3-spring-2024/main/misc/guess-what.qmd). There are a series of questions in it. Tackle them one by one, making changes to the document as you do so.
 
 # Quarto Tips {.inverse}
 
-::: {.notes}
-Talk about parameterized reporting making it worth it
-:::
+
 
 ## Markdown Text Shows Up in Many Places!
 
@@ -76,7 +81,20 @@ Talk about parameterized reporting making it worth it
 
 1. Lesson comments
 
-## Quarto Tips
+## Indented Lists
+
+> How do you add subitems in lists? I tried my best but I am not liking how my subitems show up as a dash.
+
+1. List item
+
+    1. Indented list item
+    
+. . .
+
+- List item
+
+    - Indented list item
+
 
 ## How to structure your Quarto documents
 
@@ -84,35 +102,112 @@ Talk about parameterized reporting making it worth it
 
 1. Import data at top
 
-1. Code chunks used to make outputs (graphs, tables, maps, etc)
+1. Code chunks used throughout to make outputs (graphs, tables, maps, etc)
 
 1. I also do data cleaning/tidying in a separate R script file (you'll learn about this soon)
 
-## How to load code in R script files
+::: {.notes}
+Show week 1 slides
+:::
+
+## How I use Quarto documents is not how you have to use Quarto documents!
+
+. . .
+
+> All the content about Quarto has been extremely helpful -- and it's also made me realize that I have been using R Markdown differently than intended.
+
+. . .
+
+Many people do data cleaning and exploratory data analysis in Quarto documents!
+
+::: {.notes}
+Give example of financial document I'm going to make
+:::
 
 ## How to change the size of plots in Quarto documents
 
-::: {.notes}
 ```{r}
+#| echo: true
 penguins |> 
   count(island) |> 
   ggplot(aes(x = island, 
              y = n)) +
   geom_col()
 ```
+
+## How to change the size of plots in Quarto documents
+
+````{markdown}
+```{r}
+#| echo: true
+#| fig-height: 1
+penguins |> 
+  count(island) |> 
+  ggplot(aes(x = island, 
+             y = n)) +
+  geom_col()
+```
+````
+
+## How to change the size of plots in Quarto documents
+
+```{r}
+#| echo: true
+#| fig-height: 1
+penguins |> 
+  count(island) |> 
+  ggplot(aes(x = island, 
+             y = n)) +
+  geom_col()
+```
+
+## How to make multi-column layouts in Quarto documents
+
+. . . 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Column 1
+:::
+
+::: {.column width="50%"}
+Column 2
+:::
+
+::::
+
+::: {.notes}
+https://quarto.org/docs/presentations/powerpoint.html#multiple-columns
 :::
 
 ## How to make multi-column layouts in Quarto documents
 
-## How to change the look and feel of Quarto documents
+````{markdown}
+:::: {.columns}
 
-::: {.notes}
-Custom CSS: https://quarto.org/docs/output-formats/html-basics.html#css-styles
-
-HTML Themes: https://quarto.org/docs/output-formats/html-themes.html
+::: {.column width="50%"}
+Column 1
 :::
 
+::: {.column width="50%"}
+Column 2
+:::
 
+::::
+````
+
+## How to change the look and feel of Quarto documents
+
+- Depends on output format
+
+- For HTML, [use a combination of themes and custom CSS](https://quarto.org/docs/output-formats/html-themes.html)
+
+- For Word, use [reference documents](https://quarto.org/docs/output-formats/ms-word-templates.html)
+
+- For PDF, check out [`typst` format](https://quarto.org/docs/output-formats/typst.html)
+
+- There are lessons on each of these later in R in 3 Months!
 
 # General Tip {.inverse}
 
@@ -120,8 +215,18 @@ HTML Themes: https://quarto.org/docs/output-formats/html-themes.html
 
 > I looked into the geomtextpath package and even found a fairly helpful guide (https://cran.r-project.org/web/packages/geomtextpath/vignettes/geomtextpath.html) but I'm still at a loss on how to incorporate the names into the lines themselves. I wish I were better at understanding the Help guides. 
 
+. . .
+
+- [I've added a lesson from previous coach Charlie on reading documentation pages](https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/reading-documentation-pages)
+
+::: {.notes}
+https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/reading-documentation-pages
+:::
+
+## Any Other Quarto Questions? {.inverse}
+
 # Next Week
 
-- Catch-up week! No live session but co-working sessions are happening.
+- Catch-up week! No live session or co-working sessions are happening, but please reach out to your coach for any help you may need!
 
 - For following week, you will be learning to use Git and GitHub. Lessons are up now so you can start whenever you would like to!
