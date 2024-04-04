@@ -28,6 +28,10 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
+## What is one way that you can see yourself using Quarto in your work?
+
+Put your answer in the chat!
+
 # Agenda
 
 1. Housekeeping
@@ -45,8 +49,6 @@ library(palmerpenguins)
 ::: {.notes}
 .rin3slidehttps://rin3spring2024.rfortherestofus.com/slides/slides-week-04.html
 :::
-
-
 
 # Housekeeping
 
