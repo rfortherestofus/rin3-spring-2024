@@ -1,0 +1,15 @@
+---
+title: "Penguins Report"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+**lkdjalkajflkasdfjlkdfsa**
+
+```{r}
+penguins_clean <- read_rds(here("data/penguins_clean.rds"))
+```
