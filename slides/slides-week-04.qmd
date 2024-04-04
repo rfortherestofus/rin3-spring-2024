@@ -74,12 +74,13 @@ Talk about parameterized reporting making it worth it
 # Quarto Tips {.inverse}
 
 
-
 ## Markdown Text Shows Up in Many Places!
 
 1. Discord
 
 1. Lesson comments
+
+## Visual Editor
 
 ## Indented Lists
 
