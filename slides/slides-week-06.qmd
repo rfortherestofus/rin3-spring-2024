@@ -47,11 +47,9 @@ https://rin3fall2023.rfortherestofus.com/slides-week-06.html
 
 # Housekeeping {.inverse}
 
-## Co-Working Sessions
+## Check-In Survey
 
-- New dates/times
-
-- There will be time devoted to reviewing concepts learned so far
+[Please fill out this very short check-in survey](https://forms.gle/rCBCkysZLa6LiESw6)
 
 ## What Does the Rest of R in 3 Months Look Like?
 
@@ -77,120 +75,70 @@ https://rin3fall2023.rfortherestofus.com/slides-week-06.html
 
 ## You have access to materials FOREVER! {.inverse}
 
-## Survey Results {.inverse}
-
-## Overall Progress
-
-```{r}
-#| echo: false
-gs4_auth("david@rfortherestofus.com")
-
-check_in_data <-
-  read_sheet("https://docs.google.com/spreadsheets/d/1CQp1HiDltZ9rU6AoHDUhxMWX6hD_H2Yh5XCFvkBu8-U/edit?usp=sharing") |> 
-  clean_names() |> 
-  filter(timestamp >= as.Date("2023-10-01"))
-```
-
-```{r}
-#| echo: false
-check_in_data |> 
-  select(2) |> 
-  set_names("progress") |> 
-  count(progress) |> 
-  ggplot(aes(x = progress,
-             y = n,
-             label = n)) +
-  geom_col(fill = "#6cabdd") +
-  geom_text(vjust = 1.5,
-            family = "Inter Tight",
-            color = "white",
-            size = 16 / .pt) +
-  theme_void(base_size = 16,
-             base_family = "Inter Tight") +
-  theme(axis.text.x = element_text()) +
-  scale_y_continuous(expand = expansion(0, 0.1))
-```
-
-
-## Overall Workload
-
-```{r}
-#| echo: false
-check_in_data |> 
-  select(3) |> 
-  set_names("workload") |> 
-  count(workload) |> 
-  mutate(workload = factor(workload,
-                           levels = c("Not enough",
-                                      "Just right", 
-                                      "Too much"))) |> 
-  ggplot(aes(x = workload,
-             y = n,
-             label = n)) +
-  geom_col(fill = "#6cabdd") +
-  geom_text(vjust = 1.5,
-            family = "Inter Tight",
-            color = "white",
-            size = 16 / .pt) +
-  theme_void(base_size = 16,
-             base_family = "Inter Tight") +
-  theme(axis.text.x = element_text(),
-        plot.margin = margin(10, 10, 10, 10)) +
-  scale_y_continuous(expand = expansion(0, 0.1))
-```
-
-
-## Search All Videos
-
-> Not sure if this is an easy thing or not.. but I've found myself wanting to go back and find something that was specifically mentioned in a particular week's lessons, but wasn't sure in which video. The easiest way I could find to do this was to do a CMD+F search on every video within the lesson until I found the one that matched the text I was looking for. It would be SO awesome if there was a global search for the lessons.
-
-<br>
-
-::: {.small}
-[Ask and you shall receive!](https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/all-r-in-3-months-fall-2023-videos)
-:::
-
-::: {.notes}
-https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/all-r-in-3-months-fall-2023-videos
-:::
-
-## Ask Questions!
-
-- If you'd rather not ask in the chat, please message David, Libby, or Gracielle privately and we'll ask anonymously on your behalf!
-
-## Want More Advanced Materials?
-
-1. They're coming!
-
-1. If you have specific topics you'd like to see us address, please ask and we'll make additional lessons!
+# RStudio Projects {.inverse}
 
 # Data Viz Tips {.inverse}
 
-## Sizing of Plots in Preview Isn't Accurate
+- Facetting scales
+
+- Previewing plots at exact dimensions
 
 # Git + GitHub {.inverse}
 
-## Git + GitHub
+## Using Git + GitHub with RStudio
 
-- Make sure you use the R Git Ignore template
+- You have access to [Using Git and GitHub with R](https://rfortherestofus.com/courses/git-github), which shows how to use RStudio to connect with GitHub
 
-- Using Git + GitHub with RStudio
+- How to import projects from GitHub to RStudio using GitHub Desktop and RStudio
 
-- How to Reproducibly Access Data Outside of Your RStudio Project
+## Why Learn Git + GitHub?
 
-- Publishing with GitHub Pages/Netlify
+>  I understand the basics of how github functions but I would really appreciate some clarity about a real-world practical application of how someone would use github in their work. To me, it seems like github adds a lot of extra steps to do something that can more easily be accomplished by writing detailed notes to myself in my syntax, or using the # character to zero out syntax that I previously developed but no longer want to use. Thanks for your insights!
 
-- Using GitHub for Project Management
+## Using GitHub Lets us Retrace Our Steps
 
-- GitHub Actions
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/78587c8b-fa99-4c94-bce2-026cf4e588b5.png?h=dbb1a78f096f524380f5f3eb70fa6d7b)
 
 ::: {.notes}
-- https://googledrive.tidyverse.org/
-- https://foodmap.apicouncil.org/
-- https://github.com/rfortherestofus/rfortherestofus.com/issues
-- https://rfortherestofus.com/2023/05/github-actions
+- https://allisonhorst.com/git-github
+- Show discarding changes in GH Desktop
 :::
 
+## Using GitHub for Project Management
+
+- Issues
+
+::: {.notes}
+- https://github.com/rfortherestofus/cwp-dashboard
+- https://github.com/rfortherestofus/api-food-asset-map
+:::
+
+## Publishing your Work
+
+- Publishing with Netlify
+
+::: {.notes}
+Show slides + book
+:::
+
+## More Complicated Use of GitHub for Project Management
+
+- Branches
+
+- Pull requests
+
+::: {.notes}
+- https://github.com/rfortherestofus/rfortherestofus.com/issues
+- https://github.com/rfortherestofus/rfortherestofus.com/issues/309
+:::
+
+
+## More Complicated Uses of Git + GitHub: GitHub Actions
+
+::: {.notes}
+- https://rfortherestofus.com/2023/05/github-actions
+- https://www.youtube.com/watch?v=arzBRW5XIkg&ab_channel=MelissaVanBussel(ggnot2)
+:::
 
 
 # Next Week
