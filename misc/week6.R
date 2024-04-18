@@ -6,13 +6,14 @@ library(tidyverse)
 
 penguins <- read_csv("data-raw/penguins.csv")
 
-penguins_bill_length_by_island <- penguins |>
-  group_by(island) |>
-  summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE))
-
-
-
 # Facetting Scales --------------------------------------------------------
+
+
+# This is a section label -------------------------------------------------
+
+# lkajdflkaf -----
+
+
 
 penguins |>
   drop_na(flipper_length_mm, body_mass_g) |>
@@ -21,7 +22,13 @@ penguins |>
     y = body_mass_g
   )) +
   geom_point() +
-  facet_wrap(vars(island))
+  scale_y_continuous(limits = c(0, 7000)) +
+  facet_wrap(vars(island),
+             scales = "free")
+
+ggsave(filename = "outputs/penguins-plot.png",
+       width = 5,
+       height = 3)
 
 
 # Previewing at Exact Dimensions ------------------------------------------
@@ -29,7 +36,7 @@ penguins |>
 library(camcorder)
 
 gg_record(
-  dir = "misc",
+  dir = "outputs",
   device = "png",
   width = 10,
   height = 6,
