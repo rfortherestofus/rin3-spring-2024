@@ -1,0 +1,101 @@
+respondent_id,location,pre_question_1,post_question_1,pre_question_2,post_question_2,satisfaction_question_1,satisfaction_question_2,favorite_parts
+1,"Portland, OR",2,2,3,4,2,1,Instructors
+2,"Oakland, CA",4,5,2,4,10,2,"Videos, Practical Exercises"
+3,"Portland, OR",2,2,3,3,7,1,"Videos, Practical Exercises"
+4,"Portland, OR",4,3,4,3,1,3,"Videos, Practical Exercises"
+5,"Oakland, CA",4,1,1,3,4,5,Instructors
+6,"Seattle, WA",5,5,3,3,7,1,Instructors
+7,"Oakland, CA",4,4,2,2,5,7,Instructors
+8,"Portland, OR",4,5,5,4,4,1,Instructors
+9,"Oakland, CA",3,5,1,1,9,2,Instructors
+10,"Portland, OR",4,2,1,5,3,4,"Breaks, Snacks"
+11,"Seattle, WA",1,3,1,5,2,6,"Videos, Practical Exercises"
+12,"Seattle, WA",1,4,5,5,2,1,"Breaks, Snacks"
+13,"Portland, OR",1,2,2,4,2,5,"Videos, Practical Exercises"
+14,"Oakland, CA",2,1,2,1,10,4,"Breaks, Snacks"
+15,"Seattle, WA",5,1,3,4,2,6,"Breaks, Snacks"
+16,"Seattle, WA",5,1,2,4,8,9,"Videos, Practical Exercises"
+17,"Portland, OR",2,5,1,5,9,4,Instructors
+18,"Portland, OR",2,5,3,5,1,2,Instructors
+19,"Oakland, CA",4,3,1,5,8,6,"Videos, Practical Exercises"
+20,"Portland, OR",4,4,4,3,4,3,"Breaks, Snacks"
+21,"Oakland, CA",4,3,3,3,9,6,Instructors
+22,"Seattle, WA",4,5,2,1,4,9,Instructors
+23,"Oakland, CA",5,2,5,5,6,8,Instructors
+24,"Oakland, CA",1,5,5,2,4,8,Instructors
+25,"Oakland, CA",3,1,1,4,2,10,"Breaks, Snacks"
+26,"Seattle, WA",2,3,3,1,10,3,"Breaks, Snacks"
+27,"Seattle, WA",2,4,4,5,4,5,"Breaks, Snacks"
+28,"Seattle, WA",5,1,2,5,9,3,"Videos, Practical Exercises"
+29,"Portland, OR",3,4,5,4,5,1,"Breaks, Snacks"
+30,"Seattle, WA",4,5,3,2,6,10,"Videos, Practical Exercises"
+31,"Oakland, CA",3,1,1,2,9,3,Instructors
+32,"Portland, OR",2,5,2,4,4,2,"Videos, Practical Exercises"
+33,"Portland, OR",4,2,1,4,2,7,"Videos, Practical Exercises"
+34,"Seattle, WA",3,1,2,5,1,3,"Breaks, Snacks"
+35,"Oakland, CA",2,2,3,2,7,4,"Breaks, Snacks"
+36,"Seattle, WA",5,1,4,5,7,9,"Breaks, Snacks"
+37,"Portland, OR",4,1,1,3,9,1,"Breaks, Snacks"
+38,"Portland, OR",5,4,3,3,9,6,"Videos, Practical Exercises"
+39,"Seattle, WA",3,3,2,1,2,9,Instructors
+40,"Seattle, WA",1,5,2,1,3,8,"Videos, Practical Exercises"
+41,"Portland, OR",3,3,5,3,3,9,"Videos, Practical Exercises"
+42,"Portland, OR",4,3,1,3,10,7,"Breaks, Snacks"
+43,"Oakland, CA",3,2,1,2,7,3,"Breaks, Snacks"
+44,"Portland, OR",4,2,1,2,6,5,"Videos, Practical Exercises"
+45,"Oakland, CA",3,4,5,4,4,2,Instructors
+46,"Oakland, CA",3,4,4,4,8,5,"Videos, Practical Exercises"
+47,"Portland, OR",2,2,2,5,8,5,"Videos, Practical Exercises"
+48,"Portland, OR",1,1,1,1,6,9,Instructors
+49,"Portland, OR",1,1,5,4,2,6,Instructors
+50,"Portland, OR",2,3,4,4,9,1,"Breaks, Snacks"
+51,"Seattle, WA",1,3,3,5,4,2,"Videos, Practical Exercises"
+52,"Portland, OR",3,3,4,4,9,5,Instructors
+53,"Oakland, CA",1,5,3,5,1,3,"Videos, Practical Exercises"
+54,"Seattle, WA",5,1,2,5,9,4,Instructors
+55,"Portland, OR",4,2,1,5,10,6,"Breaks, Snacks"
+56,"Oakland, CA",1,5,1,4,4,9,Instructors
+57,"Seattle, WA",1,4,1,1,3,2,"Breaks, Snacks"
+58,"Seattle, WA",5,5,3,3,8,3,"Videos, Practical Exercises"
+59,"Seattle, WA",3,2,1,3,9,4,"Breaks, Snacks"
+60,"Portland, OR",5,2,1,1,4,2,Instructors
+61,"Oakland, CA",1,5,2,4,5,9,Instructors
+62,"Seattle, WA",4,4,2,5,3,3,"Breaks, Snacks"
+63,"Oakland, CA",2,1,3,1,6,2,"Videos, Practical Exercises"
+64,"Oakland, CA",1,2,4,2,10,4,"Videos, Practical Exercises"
+65,"Portland, OR",1,2,1,3,9,1,"Breaks, Snacks"
+66,"Oakland, CA",2,3,3,2,10,9,Instructors
+67,"Seattle, WA",4,1,3,4,7,3,"Videos, Practical Exercises"
+68,"Portland, OR",3,5,3,4,6,10,"Breaks, Snacks"
+69,"Portland, OR",5,5,1,3,10,4,"Videos, Practical Exercises"
+70,"Portland, OR",4,1,2,1,6,8,"Videos, Practical Exercises"
+71,"Portland, OR",4,5,4,1,1,4,"Breaks, Snacks"
+72,"Oakland, CA",5,5,2,2,6,9,"Breaks, Snacks"
+73,"Portland, OR",5,2,3,3,7,1,"Videos, Practical Exercises"
+74,"Oakland, CA",1,2,4,2,4,2,"Breaks, Snacks"
+75,"Portland, OR",5,5,4,5,2,5,"Breaks, Snacks"
+76,"Seattle, WA",3,3,4,3,5,1,"Videos, Practical Exercises"
+77,"Portland, OR",1,3,3,4,5,8,"Breaks, Snacks"
+78,"Oakland, CA",2,2,1,2,7,9,"Videos, Practical Exercises"
+79,"Oakland, CA",5,1,1,5,8,5,"Breaks, Snacks"
+80,"Seattle, WA",4,1,2,1,3,6,"Breaks, Snacks"
+81,"Portland, OR",5,4,4,3,1,3,Instructors
+82,"Oakland, CA",4,1,1,5,8,7,"Breaks, Snacks"
+83,"Portland, OR",2,5,1,4,5,4,Instructors
+84,"Portland, OR",5,3,5,4,1,4,"Breaks, Snacks"
+85,"Seattle, WA",3,3,4,3,5,8,"Videos, Practical Exercises"
+86,"Portland, OR",4,2,2,1,6,4,"Videos, Practical Exercises"
+87,"Oakland, CA",1,1,3,4,5,1,Instructors
+88,"Seattle, WA",3,1,3,3,5,6,"Videos, Practical Exercises"
+89,"Seattle, WA",5,2,1,4,4,2,"Videos, Practical Exercises"
+90,"Portland, OR",1,3,1,5,4,10,"Videos, Practical Exercises"
+91,"Seattle, WA",3,2,4,2,10,8,"Videos, Practical Exercises"
+92,"Seattle, WA",5,3,3,5,3,8,"Breaks, Snacks"
+93,"Oakland, CA",5,1,4,1,9,3,"Videos, Practical Exercises"
+94,"Oakland, CA",2,2,2,4,6,7,"Videos, Practical Exercises"
+95,"Portland, OR",1,5,1,3,10,10,Instructors
+96,"Portland, OR",5,1,5,1,4,8,Instructors
+97,"Portland, OR",3,2,1,3,4,9,"Breaks, Snacks"
+98,"Seattle, WA",2,5,1,1,9,6,"Breaks, Snacks"
+99,"Portland, OR",2,1,2,1,7,9,Instructors
+100,"Portland, OR",5,4,2,1,5,10,"Videos, Practical Exercises"

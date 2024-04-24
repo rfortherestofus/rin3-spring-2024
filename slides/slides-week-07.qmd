@@ -35,75 +35,21 @@ library(scales)
 
 1. Housekeeping
 
-1. Git + GitHub Tips
-
 1. Tidy Data
 
-1. Next week
+1. A Couple Little Tips
+
+1. Next Week
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-07.html
+https://rin3spring2024.rfortherestofus.com/slides/slides-week-07.html
 :::
 
 # Housekeeping
 
-- There are some more advanced exercises in the #challenges-exercises channel in Discord
+- If you create a new repository for your project assignment, please remember to add your coach
 
-- We will also be adding some more advanced exercises to lessons in the R in 3 Months Fall 2023 course
 
-- If you're looking for more exercises, check out [R for Data Science](https://r4ds.hadley.nz/)
-
-- Co-working sessions will no longer happen - unless you ask for it! 
-
-# Git + GitHub Tips {.inverse}
-
-## GitHub Desktop Wording is Confusing
-
-## Don't Combine Git and Dropbox/OneDrive/Google Drive
-
-::: {.fragment}
-Dropbox and friends make many copies of files, which will confuse Git
-:::
-
-## How to Set up Git and GitHub in RStudio
-
-1. Install Git (GitHub Desktop does this for you)
-
-2. Configure Git
-
-::: {.fragment}
-```{r}
-usethis::use_git_config(user.name = "David Keyes", 
-                        user.email = "david@rfortherestofus.com")
-```
-:::
-
-3. Create a personal access token (PAT)
-
-::: {.fragment}
-```{r}
-usethis::create_github_token()
-```
-:::
-
-4. Register your PAT!
-
-::: {.fragment}
-```{r}
-#| eval: false
-gitcreds::gitcreds_set()
-```
-:::
-
-## Collaborating with GitHub
-
-- How to get others' code
-
-- Save, commit, pull, push
-
-- Merge conflicts
-
-THIS IS A CHANGE!!!
 
 # Tidy Data {.inverse}
 
@@ -117,19 +63,37 @@ https://rfortherestofus.com/2022/01/tidy-data-chat
 
 ## Libby's Tidy Data Example
 
-## David's Top Tidy Data Tips
+## David's Top Tidy Data Tips and Example
 
 1. Think about your unit of analysis (e.g. individuals, responses to a question, etc) and tidy your data based on this
 
 1. Breaking your data into multiple data frames is often an important first step
 
-## Next Week
+::: {.notes}
+What dplyr filter do you want to write later on?
+
+Data across columns
+
+Something that is multiple variables in single cell
+
+Observations in single column
+:::
+
+# A Couple Little Tips
+
+## Code Formatting
+
+Why do I put the assignment operator on the first line and code below it?
+
+## `styler` Package
+
+![](https://styler.r-lib.org/reference/figures/logo.png)
+
+# Next Week
 
 1. Lessons on data merging and functions
 
 1. Project assignment: tidy your data
-
-1. Time change in some places next week!
 
 
 
