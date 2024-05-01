@@ -26,23 +26,21 @@ editor_options:
 
 1. Housekeeping
 
-1. One Quick Tip
+1. Question on Function Arguments
 
-1. David's Top Tidy Data Tips
+1. Tidy Example Project
 
 1. A Few of Our Favorite Functions
 
 1. Next Week
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-08.html
+https://rin3spring2024.rfortherestofus.com/slides/slides-week-08.html
 :::
 
 # Housekeeping
 
-- No more co-working sessions, but feel free to schedule 1-on-1 calls with your coach
 
-- If you do the more advanced exercises and want feedback, reach out to your coach
 
 # Your Questions
 
@@ -51,23 +49,21 @@ https://rin3fall2023.rfortherestofus.com/slides-week-08.html
 I'm seeing a difference in the syntax used in the main video vs the solution video and am wondering if you can please explain the difference. In the main video, you use `separate_longer_delim(cols = activities,...` but the solution video uses `separate_longer_delim(partyid,...` without the use of `cols =`.
 
 ::: {.notes}
-https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/tidy-data-rule-2-every-row-is-an-observation
+https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/tidy-data-rule-2-every-row-is-an-observation
 
-https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/using-function-arguments
+https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/using-function-arguments
 :::
 
-# Your Questions
 
-. . .
+# Tidy Example Project
 
-In the 'Your Turn' section, we're binding two datasets that have the same number of cols/vars. What if I want to bind two datasets with a different number of cols/vars? 
-Is this something we should avoid doing?
-
-# David's Top Tidy Data Tips
-
-1. Think about your unit of analysis (e.g. individuals, responses to a question, etc) and tidy your data based on this
-
-1. Breaking your data into multiple data frames is often an important first step
+::: {.notes}
+- make demographics data frame
+- make function to import data
+- show importing multiple years of data
+- make function to work with slightly different data (2021): show doing extra steps after function and within it (show rename() not working, but use set_names() instead)
+- in report, show merging demographics data frame in
+:::
 
 # A Few of Our Favorite Functions
 
@@ -76,7 +72,7 @@ Is this something we should avoid doing?
 - You'll learn later how to make a custom ggplot theme that is a function
 
 ::: {.notes}
-https://book.rwithoutstatistics.com/packages-chapter
+https://book.rfortherestofus.com/packages.html
 :::
 
 # Next Week

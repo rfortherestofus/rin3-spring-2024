@@ -8,7 +8,7 @@
 <link href="slides-week-08_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides-week-08_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="slides-week-08_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.553">
 
   <title>R in 3 Months Week 8 (Merging Data and Functions)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -155,7 +155,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -334,13 +335,13 @@
 <h1>Agenda</h1>
 <ol type="1">
 <li class="fragment"><p>Housekeeping</p></li>
-<li class="fragment"><p>One Quick Tip</p></li>
-<li class="fragment"><p>David’s Top Tidy Data Tips</p></li>
+<li class="fragment"><p>Question on Function Arguments</p></li>
+<li class="fragment"><p>Tidy Example Project</p></li>
 <li class="fragment"><p>A Few of Our Favorite Functions</p></li>
 <li class="fragment"><p>Next Week</p></li>
 </ol>
 <aside class="notes">
-<p>https://rin3fall2023.rfortherestofus.com/slides-week-08.html</p>
+<p>https://rin3spring2024.rfortherestofus.com/slides/slides-week-08.html</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -356,10 +357,7 @@
 
 <section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
-<ul>
-<li class="fragment"><p>No more co-working sessions, but feel free to schedule 1-on-1 calls with your coach</p></li>
-<li class="fragment"><p>If you do the more advanced exercises and want feedback, reach out to your coach</p></li>
-</ul>
+
 </section>
 
 <section id="your-questions" class="title-slide slide level1 center">
@@ -367,8 +365,8 @@
 <div class="fragment">
 <p>I’m seeing a difference in the syntax used in the main video vs the solution video and am wondering if you can please explain the difference. In the main video, you use <code>separate_longer_delim(cols = activities,...</code> but the solution video uses <code>separate_longer_delim(partyid,...</code> without the use of <code>cols =</code>.</p>
 <aside class="notes">
-<p>https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/tidy-data-rule-2-every-row-is-an-observation</p>
-<p>https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/using-function-arguments</p>
+<p>https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/tidy-data-rule-2-every-row-is-an-observation</p>
+<p>https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/using-function-arguments</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -383,19 +381,27 @@
 </div>
 </section>
 
-<section id="your-questions-1" class="title-slide slide level1 center">
-<h1>Your Questions</h1>
-<div class="fragment">
-<p>In the ‘Your Turn’ section, we’re binding two datasets that have the same number of cols/vars. What if I want to bind two datasets with a different number of cols/vars? Is this something we should avoid doing?</p>
-</div>
-</section>
-
-<section id="davids-top-tidy-data-tips" class="title-slide slide level1 center">
-<h1>David’s Top Tidy Data Tips</h1>
-<ol type="1">
-<li class="fragment"><p>Think about your unit of analysis (e.g.&nbsp;individuals, responses to a question, etc) and tidy your data based on this</p></li>
-<li class="fragment"><p>Breaking your data into multiple data frames is often an important first step</p></li>
-</ol>
+<section id="tidy-example-project" class="title-slide slide level1 center">
+<h1>Tidy Example Project</h1>
+<aside class="notes">
+<ul>
+<li>make demographics data frame</li>
+<li>make function to import data</li>
+<li>show importing multiple years of data</li>
+<li>make function to work with slightly different data (2021): show doing extra steps after function and within it (show rename() not working, but use set_names() instead)</li>
+<li>in report, show merging demographics data frame in</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section id="a-few-of-our-favorite-functions" class="title-slide slide level1 center">
@@ -405,7 +411,7 @@
 <li class="fragment"><p>You’ll learn later how to make a custom ggplot theme that is a function</p></li>
 </ul>
 <aside class="notes">
-<p>https://book.rwithoutstatistics.com/packages-chapter</p>
+<p>https://book.rfortherestofus.com/packages.html</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -425,8 +431,10 @@
 <li class="fragment"><p>Advanced data viz lessons</p></li>
 <li class="fragment"><p>No project assignment, but start to think about improving a data viz you’ve made previously</p></li>
 </ul>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -455,7 +463,6 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -716,10 +723,27 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -729,8 +753,17 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -744,7 +777,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

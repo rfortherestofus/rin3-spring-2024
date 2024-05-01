@@ -411,6 +411,12 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="tidy-data-question" class="slide level2 center">
+<h2>Tidy Data Question</h2>
+<blockquote>
+<p>When working with “select all that apply” variables in the past in datasets where one row = one individual, I’ve typically dealt with this by converting each response option to its own column where a 1 (“yes”) is present if that response option was selected. This has worked well for my purposes, but I understand now that it violates Tidy Data Rule 1 because a single variable is spread across multiple columns. Am I understanding correctly that while the approach I’ve used in the paste is not inherently better or worse than tidy format, the advantage to making it tidy is that it will be easier to analyze using tidyverse? Is this still true if the unit of analysis I’m interested in is the individual and not the activity (for example)?</p>
+</blockquote>
 </section></section>
 <section>
 <section id="a-couple-little-tips" class="title-slide slide level1 center">
