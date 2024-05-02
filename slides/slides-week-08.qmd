@@ -38,7 +38,7 @@ editor_options:
 https://rin3spring2024.rfortherestofus.com/slides/slides-week-08.html
 :::
 
-# Housekeeping
+# Housekeeping {.inverse}
 
 
 
@@ -63,6 +63,7 @@ https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/using-func
 - show importing multiple years of data
 - make function to work with slightly different data (2021): show doing extra steps after function and within it (show rename() not working, but use set_names() instead)
 - in report, show merging demographics data frame in
+- make function to create data viz for any year
 :::
 
 # A Few of Our Favorite Functions
