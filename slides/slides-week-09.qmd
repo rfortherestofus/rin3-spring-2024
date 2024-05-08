@@ -26,25 +26,38 @@ editor_options:
 
 1. Housekeeping
 
-1. Your Questions
+1. Making functions for data viz
 
-1. CBEM Data Viz Live Coding
+1. CBEM data viz live coding
 
-1. Next Week
+1. Next week
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-09.html
+https://rin3spring2024.rfortherestofus.com/slides/slides-week-09.html
 :::
 
 # Housekeeping
 
-1. There are several additional lessons added recently (David + Gracielle demonstrating our favorite functions and Libby giving an intro to factors)
+. . .
 
-1. How to pull feedback from your coach
+Remaining weeks:
 
-# Your Questions
+- Week 10: Catch-up week
 
-> I'm wondering if it's possible/easy to use data within a table to fill a title or subtitle.
+- Week 11: Advanced data viz, part 2
+
+- Week 12: Advanced Quarto
+
+- Week 13: Final projects
+
+# Housekeeping
+
+You can get feedback from your coach through the end of June
+
+. . .
+
+You have access to materials FOREVER!
+
 
 # Advanced Data Viz {.inverse}
 
@@ -54,7 +67,7 @@ https://rin3fall2023.rfortherestofus.com/slides-week-09.html
 
 # CBEM Bar Chart Live Coding
 
-[![](assets/cbem-example.jpeg)](https://judishouse.org/research-tools/cbem/cbem-race-ethnicity/cbem-race-ethnicity-reports/)
+[![](assets/cbem-example.jpeg)](https://judishouse.org/research-tools/cbem/cbem-key-topics/cbem-race-ethnicity/cbem-race-ethnicity-reports/)
 
 # Next Week
 

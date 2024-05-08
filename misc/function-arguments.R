@@ -6,15 +6,14 @@ gss_cat |>
 # Write code to count the number of unique responses to the partyid question
 
 gss_cat |>
-  separate_longer_delim(partyid,
-                        delim = ",") |>
-  count(partyid)
+  separate_longer_delim(cols = partyid,
+                        delim = ",") |> 
+  select(partyid)
 
 gss_cat |>
   separate_longer_delim(partyid,
                         delim = ",") |>
   count(partyid) |>
   ggplot(aes(partyid,
-             n,
-             partyid)) +
+             n)) +
   geom_col()

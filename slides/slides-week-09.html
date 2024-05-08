@@ -8,7 +8,7 @@
 <link href="slides-week-09_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides-week-09_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="slides-week-09_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.472">
+  <meta name="generator" content="quarto-1.4.553">
 
   <title>R in 3 Months Week 9 (Advanced Data Viz, Part 1)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -356,10 +356,23 @@
 
 <section id="housekeeping" class="title-slide slide level1 center">
 <h1>Housekeeping</h1>
-<ol type="1">
-<li class="fragment"><p>There are several additional lessons added recently (David + Gracielle demonstrating our favorite functions and Libby giving an intro to factors)</p></li>
-<li class="fragment"><p>How to pull feedback from your coach</p></li>
-</ol>
+<div class="fragment">
+<p>Remaining weeks:</p>
+<ul>
+<li class="fragment"><p>Week 10: Catch-up week</p></li>
+<li class="fragment"><p>Week 11: Advanced data viz, part 2</p></li>
+<li class="fragment"><p>Week 12: Advanced Quarto</p></li>
+<li class="fragment"><p>Week 13: Final projects</p></li>
+</ul>
+</div>
+</section>
+
+<section id="housekeeping-1" class="title-slide slide level1 center">
+<h1>Housekeeping</h1>
+<p>You can get feedback from your coach through the end of June</p>
+<div class="fragment">
+<p>You have access to materials FOREVER!</p>
+</div>
 </section>
 
 <section id="your-questions" class="title-slide slide level1 center">
@@ -381,7 +394,7 @@
 
 <section id="cbem-bar-chart-live-coding" class="title-slide slide level1 center">
 <h1>CBEM Bar Chart Live Coding</h1>
-<p><a href="https://judishouse.org/research-tools/cbem/cbem-race-ethnicity/cbem-race-ethnicity-reports/"><img data-src="assets/cbem-example.jpeg"></a></p>
+<p><a href="https://judishouse.org/research-tools/cbem/cbem-key-topics/cbem-race-ethnicity/cbem-race-ethnicity-reports/"><img data-src="assets/cbem-example.jpeg"></a></p>
 </section>
 
 <section id="next-week" class="title-slide slide level1 center">
@@ -390,8 +403,10 @@
 <li class="fragment"><p>Advanced data viz lessons, part 2: make your own custom theme</p></li>
 <li class="fragment"><p>Project assignment: improve an earlier data viz (or make a new one) using the principles you learn about</p></li>
 </ul>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -680,6 +695,24 @@
         // clear code selection
         e.clearSelection();
       });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -716,7 +749,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
