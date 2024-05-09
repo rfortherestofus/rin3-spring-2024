@@ -42,7 +42,7 @@ https://rin3spring2024.rfortherestofus.com/slides/slides-week-09.html
 
 Remaining weeks:
 
-- Week 10: Catch-up week
+- Week 10: Catch-up week (no live session or co-working session)
 
 - Week 11: Advanced data viz, part 2
 
@@ -71,6 +71,8 @@ You have access to materials FOREVER!
 
 # Next Week
 
-- Advanced data viz lessons, part 2: make your own custom theme
+- Catch-up week (no live session or co-working session)
 
-- Project assignment: improve an earlier data viz (or make a new one) using the principles you learn about
+- Week after that is advanced data viz, part 2
+
+- Your project assignment will be to improve a previous data viz

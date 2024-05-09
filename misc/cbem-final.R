@@ -1,3 +1,13 @@
+# chicklet
+# colors
+# order of bars
+# limits (hispanic on end at 5.5)
+# text labels
+# state rate line and text
+# patchwork to stitch together plots
+# make function
+
+
 #  Recreating this: https://show.rfor.us/cditiy
 
 # Load Packages -----------------------------------------------------------
