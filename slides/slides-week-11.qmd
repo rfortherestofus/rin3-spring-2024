@@ -1,14 +1,14 @@
 ---
-title: R in 3 Months Week 11 (Advanced Quarto)
+title: R in 3 Months Week 11 (Advanced Data Viz, Part 2)
 format:
   rfortherestofus-slides-revealjs:
     menu: false
-progress: true
-slide-number: true
-show-slide-number: print
-center: true
-incremental: true
-auto-animate: true
+    progress: true
+    slide-number: true
+    show-slide-number: print
+    center: true
+    incremental: true
+    auto-animate: true
 execute: 
   message: false
   warning: false
@@ -17,11 +17,11 @@ execute:
   echo: true
 title-slide-attributes:
   data-background-image: assets/rru-hex-bg-gradient-dark.svg
-data-background-size: cover
+  data-background-size: cover
 editor_options: 
   chunk_output_type: console
 ---
-  
+
 ```{r}
 #| echo: false
 library(tidyverse)
@@ -33,54 +33,109 @@ library(janitor)
 
 1. Housekeeping
 
-1. Advanced Quarto
+1. Advanced Custom Themes
+
+1. Mapping
+
+1. Interactive Data Viz
 
 1. Next Week
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-11.html
+https://rin3spring2024.rfortherestofus.com/slides/slides-week-11.html
 :::
-  
+
 # Housekeeping
-  
-1. Next week is the last live session, but you can get feedback through December
 
-1. You'll have access to course materials forever!
+1. Two more weeks: Advanced Quarto and final projects
 
-# Advanced Quarto {.inverse}
-
-## Conditional Content {.inverse}
-
-## Conditional Content
-
-If `flextable` is better for Word/Powerpoint and `gt` is better for web/interactive, is there a way to set a conditional to choose how to render the table depending on what the report is targeting? 
-
-## Adding Comments with hypothes.is {.inverse}
-
-## Parameterized Reporting {.inverse}
+# Advanced Custom Themes {.inverse}
 
 ::: {.notes}
-- https://book.rwithoutstatistics.com/quarto-chapter#parameterized-reporting
+https://book.rwithoutstatistics.com/custom-theme-chapter
 
-- Add parameter
-  - Make sure to use `fct()` to change order of bars
-  - Add inline R code
-- Render with parameter
-- Create R script file to render
-- Render report with `quarto_render()`
-  - Show `input`, `output_file`, and `execute_params` arguments
-  - Talk about how we could render one report this way, but not all reports
-- Create tibble to render one report and pass it to `quarto_render()`
-- Create `reports` tibble with all counties
-  - Render with `pwalk()`
+Add hide_gridlines
+Add hide_legend
+
+```
+theme_dk <- function(base_font = "Inter",
+                     hide_gridlines = TRUE,
+                     hide_legend = TRUE) {
+
+  update_geom_defaults(geom = "text",
+                       aes(family = base_font))
+
+  custom_theme <-
+    theme_minimal(base_family = base_font) +
+    theme(axis.title = element_blank(),
+          axis.text = element_text(color = "grey60",
+                                   size = 10),
+          plot.title = element_markdown(),
+          plot.title.position = "plot",
+          legend.position = "none")
+
+
+  if (hide_gridlines == TRUE) {
+
+    custom_theme <-
+      custom_theme +
+      theme(panel.grid = element_blank())
+
+  }
+
+  if (hide_legend == FALSE) {
+
+    custom_theme <-
+      custom_theme +
+      theme(legend.position = "right")
+
+  }
+
+  custom_theme
+
+}
+```
 :::
-  
+
+# Organizations with Public Custom {ggplot2} Themes 
+
+* [The BBC's {bbplot} Package](https://github.com/bbc/bbplot)  
+
+* [The BBC's Cookbook for R Graphics](https://bbc.github.io/rcookbook/) 
+
+* [Washington Soil Health Initiative {washi} Branding Package](https://wa-department-of-agriculture.github.io/washi/)  
+
+# Organizations with Public Custom {ggplot2} Themes, Continued 
+
+* [Sage Bionetworks {sagethemes} Package](https://sage-bionetworks.github.io/sagethemes/)
+
+* [Duke University's {duke} Package](https://aidangildea.github.io/duke/)
+
+* [University of Exeter's theme_exeter()](https://github.com/lukepilling/theme_exeter)
+
+# Mapping {.inverse}
+
+::: {.notes}
+https://book.rfortherestofus.com/maps.html
+
+https://r.geocompx.org/
+
+- geometry type
+- dimensions
+- bounding box
+- crs
+- geometry column
+:::
+
+
+# Interactive Data Viz {.inverse}
+
+::: {.notes}
+https://davidgohel.github.io/ggiraph/
+:::
+
 # Next Week
 
-1. Surveys on your progress and on feedback on R in 3 Months
-  
-1. Please complete final projects **even if you haven't completed every single lesson**
+- Advanced Quarto
 
-1. Next week we'll talk about your progress (including showing some final projects) and discuss where you go after R in 3 Months to continue learning R
-
-
+- Do the lessons relevant to you and skip the rest

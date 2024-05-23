@@ -1,0 +1,127 @@
+---
+title: "Interactive Data Viz Example"
+format: html
+execute: 
+  warning: false
+  message: false
+  echo: false
+---
+
+```{r}
+library(tidyverse)
+library(scales)
+library(ggchicklet)
+library(ggiraph)
+```
+
+
+```{r}
+cbem <-
+  read_csv(here::here("data-raw/cbem.csv"))
+```
+
+## Static Plot
+
+```{r}
+ cbem |>
+  filter(location == "Oregon") |>
+  filter(age_group == "Under 18") |>
+  filter(group != "All Persons") |>
+  mutate(group = fct(
+    group,
+    levels = c(
+      "American Indian or Alaska Native",
+      "Asian or Pacific Islander",
+      "Black or African American",
+      "White",
+      "Hispanic or Latino"
+    )
+  )) |>
+  mutate(x_position = row_number()) |>
+  mutate(x_position = case_when(
+    group == "Hispanic or Latino" ~ 5.5,
+    .default = x_position
+  )) |>
+  mutate(percent_formatted = percent(percent)) |>
+  ggplot(
+    aes(
+      x = x_position,
+      y = percent,
+      fill = group,
+      label = percent_formatted
+    )
+  ) +
+  geom_col() +
+  geom_text(
+    vjust = 1.5,
+    color = "white"
+  ) +
+  scale_fill_manual(
+    values = c(
+      "American Indian or Alaska Native" = "#9CC892",
+      "Asian or Pacific Islander" = "#0066cc",
+      "Black or African American" = "#477A3E",
+      "White" = "#6CC5E9",
+      "Hispanic or Latino" = "#ff7400"
+    )
+  ) +
+  theme_void() +
+  theme(legend.position = "none")
+```
+
+
+## Interactive Plot
+
+```{r}
+cbem_interactive_plot <-
+  cbem |>
+  filter(location == "Oregon") |>
+  filter(age_group == "Under 18") |>
+  filter(group != "All Persons") |>
+  mutate(group = fct(
+    group,
+    levels = c(
+      "American Indian or Alaska Native",
+      "Asian or Pacific Islander",
+      "Black or African American",
+      "White",
+      "Hispanic or Latino"
+    )
+  )) |>
+  mutate(x_position = row_number()) |>
+  mutate(x_position = case_when(
+    group == "Hispanic or Latino" ~ 5.5,
+    .default = x_position
+  )) |>
+  mutate(percent_formatted = percent(percent)) |>
+  ggplot(
+    aes(
+      x = x_position,
+      y = percent,
+      fill = group,
+      label = percent_formatted
+    )
+  ) +
+  geom_col_interactive(
+    aes(
+      tooltip = group
+    )
+  ) +
+  geom_text(
+    vjust = 1.5,
+    color = "white"
+  ) +
+  scale_fill_manual(
+    values = c(
+      "American Indian or Alaska Native" = "#9CC892",
+      "Asian or Pacific Islander" = "#0066cc",
+      "Black or African American" = "#477A3E",
+      "White" = "#6CC5E9",
+      "Hispanic or Latino" = "#ff7400"
+    )
+  ) +
+  theme_void() +
+  theme(legend.position = "none")
+
+girafe(ggobj = cbem_interactive_plot)
+```
