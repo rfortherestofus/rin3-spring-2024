@@ -1,6 +1,5 @@
-theme_dk <- function(base_font = "Inter") {
-  custom_theme <-
-    theme_minimal(base_family = base_font) +
+theme_dk <- function() {
+  theme_minimal() +
     theme(
       axis.title = element_blank(),
       axis.text = element_text(
@@ -8,8 +7,6 @@ theme_dk <- function(base_font = "Inter") {
         size = 10
       )
     )
-
-  custom_theme
 }
 
 library(tidyverse)
