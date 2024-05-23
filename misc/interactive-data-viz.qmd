@@ -104,7 +104,7 @@ cbem_interactive_plot <-
   ) +
   geom_col_interactive(
     aes(
-      tooltip = group
+      tooltip = str_glue("{group}: {percent_formatted}")
     )
   ) +
   geom_text(
