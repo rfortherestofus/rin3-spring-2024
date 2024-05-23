@@ -49,52 +49,15 @@ https://rin3spring2024.rfortherestofus.com/slides/slides-week-11.html
 
 1. Two more weeks: Advanced Quarto and final projects
 
+1. Final project is to record a video demonstrating something you've learned ([lesson](https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/r-in-3-months-final-project))
+
 # Advanced Custom Themes {.inverse}
 
 ::: {.notes}
-https://book.rwithoutstatistics.com/custom-theme-chapter
+https://book.rfortherestofus.com/themes.html
 
-Add hide_gridlines
-Add hide_legend
-
-```
-theme_dk <- function(base_font = "Inter",
-                     hide_gridlines = TRUE,
-                     hide_legend = TRUE) {
-
-  update_geom_defaults(geom = "text",
-                       aes(family = base_font))
-
-  custom_theme <-
-    theme_minimal(base_family = base_font) +
-    theme(axis.title = element_blank(),
-          axis.text = element_text(color = "grey60",
-                                   size = 10),
-          plot.title = element_markdown(),
-          plot.title.position = "plot",
-          legend.position = "none")
-
-
-  if (hide_gridlines == TRUE) {
-
-    custom_theme <-
-      custom_theme +
-      theme(panel.grid = element_blank())
-
-  }
-
-  if (hide_legend == FALSE) {
-
-    custom_theme <-
-      custom_theme +
-      theme(legend.position = "right")
-
-  }
-
-  custom_theme
-
-}
-```
+- Add hide_gridlines
+- Add hide_legend
 :::
 
 # Organizations with Public Custom {ggplot2} Themes 
@@ -111,7 +74,7 @@ theme_dk <- function(base_font = "Inter",
 
 * [Duke University's {duke} Package](https://aidangildea.github.io/duke/)
 
-* [University of Exeter's theme_exeter()](https://github.com/lukepilling/theme_exeter)
+* [University of Exeter's `theme_exeter()`](https://github.com/lukepilling/theme_exeter)
 
 # Mapping {.inverse}
 
@@ -139,3 +102,7 @@ https://davidgohel.github.io/ggiraph/
 - Advanced Quarto
 
 - Do the lessons relevant to you and skip the rest
+
+- I'll demonstrate parameterized reporting next week in the live session so feel free to skip those lessons for now
+
+- Start to think about final project
