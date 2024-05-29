@@ -5,11 +5,12 @@ library(janitor)
 
 # Theme -------------------------------------------------------------------
 
-theme_dk <- function(base_font = "Inter",
-                     show_gridlines = TRUE,
-                     show_legend = TRUE) {
-  
-  custom_theme <- 
+theme_dk <- function(
+  base_font = "Inter",
+  show_gridlines = TRUE,
+  show_legend = TRUE
+) {
+  custom_theme <-
     theme_minimal(base_family = base_font) +
     theme(
       axis.title = element_blank(),
@@ -18,36 +19,36 @@ theme_dk <- function(base_font = "Inter",
         size = 18
       )
     )
-  
+
   if (show_gridlines == FALSE) {
     custom_theme <- custom_theme +
       theme(
         panel.grid = element_blank()
       )
   }
-  
+
   if (show_legend == FALSE) {
     custom_theme <- custom_theme +
       theme(
         legend.position = "none"
       )
   }
-  
+
   return(custom_theme)
 }
 
 # Portland ----------------------------------------------------------------
 
 portland_boundaries <-
-  read_sf("data-raw/City_Boundaries.geojson") |> 
-  clean_names() |> 
+  read_sf("data-raw/City_Boundaries.geojson") |>
+  clean_names() |>
   filter(cityname == "Portland")
 
 ggplot(data = portland_boundaries) +
   geom_sf()
 
 traffic_signals <-
-  read_sf("data-raw/Traffic_Signals.geojson") |> 
+  read_sf("data-raw/Traffic_Signals.geojson") |>
   clean_names()
 
 ggplot(data = traffic_signals) +
@@ -56,19 +57,23 @@ ggplot(data = traffic_signals) +
 
 
 snow_and_ice_routes <-
-  read_sf("data-raw/Snow_and_Ice_Routes.geojson") |> 
+  read_sf("data-raw/Snow_and_Ice_Routes.geojson") |>
   clean_names()
 
 ggplot() +
   geom_sf(data = portland_boundaries) +
-  geom_sf(data = snow_and_ice_routes,
-          aes(
-            color = priority
-          ),
-          linewidth = 0.1) +
-  geom_sf(data = traffic_signals,
-          size = 0.5,
-          alpha = 0.5) +
+  geom_sf(
+    data = snow_and_ice_routes,
+    aes(
+      color = priority
+    ),
+    linewidth = 0.1
+  ) +
+  geom_sf(
+    data = traffic_signals,
+    size = 0.5,
+    alpha = 0.5
+  ) +
   theme_dk(show_gridlines = FALSE) +
   theme(axis.text = element_blank())
 
@@ -87,10 +92,11 @@ oregon_counties <- counties(state = "Oregon")
 
 ggplot(data = oregon_counties) +
   geom_sf()
-  
+
 # Median Income -----------------------------------------------------------
 
 library(tidycensus)
+library(scales)
 
 median_income <-
   get_acs(
@@ -103,8 +109,15 @@ median_income <-
 median_income |>
   ggplot(aes(fill = estimate)) +
   geom_sf() +
-  scale_fill_viridis_c(option = "magma") +
-  theme_void()
+  labs(fill = NULL,
+       title = "Median Household Income by County") +
+  scale_fill_viridis_c(
+    option = "magma",
+    labels = dollar_format()
+  ) +
+  theme_void() +
+  theme(plot.title = element_text(face = "bold",
+                                  hjust = 0.5))
 
 
 

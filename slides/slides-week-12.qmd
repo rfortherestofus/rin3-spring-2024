@@ -1,5 +1,5 @@
 ---
-title: R in 3 Months Week 11 (Advanced Quarto)
+title: R in 3 Months Week 12 (Advanced Quarto)
 format:
   rfortherestofus-slides-revealjs:
     menu: false
@@ -38,46 +38,97 @@ library(janitor)
 1. Next Week
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-11.html
+https://rin3spring2024.rfortherestofus.com/slides/slides-week-12.html
 :::
   
 # Housekeeping
   
-1. Next week is the last live session, but you can get feedback through December
+1. Next week is the last live session, but you can get feedback through end of June
 
 1. You'll have access to course materials forever!
 
 # Advanced Quarto {.inverse}
 
-## Conditional Content {.inverse}
-
-## Conditional Content
-
-If `flextable` is better for Word/Powerpoint and `gt` is better for web/interactive, is there a way to set a conditional to choose how to render the table depending on what the report is targeting? 
-
-## Adding Comments with hypothes.is {.inverse}
+## Adding Citations {.inverse}
 
 ## Parameterized Reporting {.inverse}
 
-::: {.notes}
-- https://book.rwithoutstatistics.com/quarto-chapter#parameterized-reporting
+# Parameterized Reporting {.inverse}
 
-- Add parameter
-  - Make sure to use `fct()` to change order of bars
-  - Add inline R code
-- Render with parameter
-- Create R script file to render
-- Render report with `quarto_render()`
-  - Show `input`, `output_file`, and `execute_params` arguments
-  - Talk about how we could render one report this way, but not all reports
-- Create tibble to render one report and pass it to `quarto_render()`
-- Create `reports` tibble with all counties
-  - Render with `pwalk()`
+::: {.notes}
+Make multiple reports at once
+:::
+
+## Why Parameterized Reporting?
+
+1. Allows you to make multiple reports at once
+1. Avoids copy paste issues if you were to make multiple reports by hand
+1. It feels like magic!
+
+::: {.notes}
+Start by talking about reports at OCF
+:::
+
+## Parameterized Reports We Have Made {.inverse}
+
+---
+
+![](assets/ivac-country-report-angola.png){height=700, fig-align="center"}
+
+---
+
+![](assets/ivac-country-reports.png){height=700, fig-align="center"}
+
+::: {.notes}
+https://www.jhsph.edu/ivac/resources/pdpr/
+:::
+
+
+---
+
+![](assets/psc.png)
+
+::: {.notes}
+Show webpage on screen while presenting
+https://housingprofiles.pschousing.org/
+:::
+
+## How Does Parameterized Reporting Work? {.inverse}
+
+---
+
+## {background-video="assets/parameterized-reporting-diagram.mp4" background-video-muted="true" background-video-loop="true"}
+
+
+## Demonstration of Parameterized Reporting 
+
+::: {.notes}
+Manually Create Multiple Reports
+
+- Create new project
+- Create Quarto document with manual filtering and manual text
+
+Add Parameters to YAML
+
+- Add parameters
+- Filter dataset
+- Inline R code
+
+Render with R Script
+
+- With just `input` argument
+- Adding `output_file` and `execute_params` arguments
+
+Render Multiple Reports with `quarto_render()`
+
+- Show `quarto_render()` with one-row tibble
+- Create `reports` tibble for all countries
+- Render multiple reports with `pwalk()`
 :::
   
 # Next Week
 
-1. Surveys on your progress and on feedback on R in 3 Months
+1. Surveys on your progress and on feedback for R in 3 Months
   
 1. Please complete final projects **even if you haven't completed every single lesson**
 
