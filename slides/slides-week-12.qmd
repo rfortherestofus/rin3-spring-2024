@@ -53,8 +53,6 @@ https://rin3spring2024.rfortherestofus.com/slides/slides-week-12.html
 
 ## Parameterized Reporting {.inverse}
 
-# Parameterized Reporting {.inverse}
-
 ::: {.notes}
 Make multiple reports at once
 :::
