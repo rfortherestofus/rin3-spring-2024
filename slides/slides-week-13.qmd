@@ -39,7 +39,7 @@ library(janitor)
 1. Where to Go From Here
 
 ::: {.notes}
-https://rin3fall2023.rfortherestofus.com/slides-week-13.html
+https://rin3spring2024.rfortherestofus.com/slides/slides-week-13.html
 :::
   
 # How Far You've Come {.inverse}
@@ -56,7 +56,7 @@ gs4_auth("david@rfortherestofus.com")
 
 pre_survey <- read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqiLs7QywaGF-Y85HQZn1iIIXN4I_tpg/edit#gid=1201619159") |>
   clean_names() |>
-  filter(timestamp > as.Date("2023-09-01")) |>
+  filter(timestamp > as.Date("2024-01-01")) |>
   select(-what_is_your_name)
 
 pre_survey_tidy <- pre_survey |>
@@ -67,7 +67,7 @@ pre_survey_tidy <- pre_survey |>
 
 post_survey <- read_sheet("https://docs.google.com/spreadsheets/d/1S5g1UYyBKiUfIU3yi9M_OZs1RvedH5xPPrMhs8Sw53o/edit#gid=1400508795") |>
   clean_names() |>
-  filter(timestamp > as.Date("2023-09-01"))
+  filter(timestamp > as.Date("2024-01-01"))
 
 post_survey_tidy <- post_survey |>
   select(contains("rate"), contains("terrified")) |>
@@ -103,7 +103,7 @@ pre_post_plot <- function(area) {
 ```
 
 ::: {.notes}
-https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/r-in-3-months-progress-survey
+https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/r-in-3-months-progress-survey
 :::
 
 ## Data Analysis
@@ -133,6 +133,10 @@ pre_post_plot("scared")
 
 # Where to Go From Here {.inverse}
 
+# Rubber Duck Debugging {.inverse}
+
+# Planning with Pseudo Code
+
 ## Where to Ask Questions
 
 There are three popular question and answer communities for (R) code questions:
@@ -143,7 +147,7 @@ There are three popular question and answer communities for (R) code questions:
 
 - Unfortunately, it has a well-earned reputation for not being welcoming to new users.
 
-
+- It also had a [recent controversy related to selling data to OpenAI](https://www.tomshardware.com/tech-industry/artificial-intelligence/stack-overflow-bans-users-en-masse-for-rebelling-against-openai-partnership-users-banned-for-deleting-answers-to-prevent-them-being-used-to-train-chatgpt), with many users deleting answers they had previously posted
 
 ## [Posit Community](https://community.rstudio.com/)
 
@@ -151,7 +155,7 @@ There are three popular question and answer communities for (R) code questions:
 
 - The admins do work to make the site a welcoming place for all users.
 
-## [R for Data Science Learning Community](https://www.rfordatasci.com/)
+## [Data Science Learning Community](https://dslc.io/)
 
 - Slack community that is very welcoming to newbies
 
@@ -170,8 +174,6 @@ There are three popular question and answer communities for (R) code questions:
 - The more you can specify the package you want it to use, the better results you'll have
 
 # How to Ask Good (Code) Questions {.inverse}
-
-
 
 ## How to Ask Good (Code) Questions
 
@@ -230,8 +232,6 @@ diamonds |>
 
 1. Copy and paste the output in the Viewer tab into your question
 
-
-
 ## Learn More About Reprex
 
 [Jenny Bryan video overview of reprex](https://www.youtube.com/watch?v=5gqksthQ0cM&ab_channel=PositPBC)
@@ -242,9 +242,9 @@ diamonds |>
 
 ## R in 3 Months
 
-1. Submit any assignments for feedback any time in December
+1. Submit any assignments for feedback any time in June
 
-1. Any 1-on-1s with your coaches must be completed by December 22
+1. Any 1-on-1s with your coaches must be completed by end of June
 
 1. Please submit final assignments whenever (we love seeing what you've done!)
 

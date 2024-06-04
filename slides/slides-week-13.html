@@ -8,7 +8,7 @@
 <link href="slides-week-13_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="slides-week-13_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="slides-week-13_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.553">
 
   <title>R in 3 Months Week 13 (Wrapping Up)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -220,7 +220,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -402,7 +403,7 @@
 <li class="fragment"><p>Where to Go From Here</p></li>
 </ol>
 <aside class="notes">
-<p>https://rin3fall2023.rfortherestofus.com/slides-week-13.html</p>
+<p>https://rin3spring2024.rfortherestofus.com/slides/slides-week-13.html</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -420,7 +421,7 @@
 <section id="how-far-youve-come" class="title-slide slide level1 inverse center">
 <h1>How Far You’ve Come</h1>
 <aside class="notes">
-<p>https://rfortherestofus.com/courses/r-in-3-months-fall-2023/lessons/r-in-3-months-progress-survey</p>
+<p>https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/r-in-3-months-progress-survey</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -448,9 +449,19 @@
 <section id="what-youve-done-in-the-last-three-months" class="slide level2 inverse center">
 <h2>What You’ve Done in the Last Three Months</h2>
 </section></section>
-<section>
 <section id="where-to-go-from-here" class="title-slide slide level1 inverse center">
 <h1>Where to Go From Here</h1>
+
+</section>
+
+<section id="rubber-duck-debugging" class="title-slide slide level1 inverse center">
+<h1>Rubber Duck Debugging</h1>
+
+</section>
+
+<section>
+<section id="planning-with-pseudo-code" class="title-slide slide level1 center">
+<h1>Planning with Pseudo Code</h1>
 
 </section>
 <section id="where-to-ask-questions" class="slide level2 center">
@@ -462,6 +473,7 @@
 <ul>
 <li class="fragment"><p>This is a general purpose code Q&amp;A website.</p></li>
 <li class="fragment"><p>Unfortunately, it has a well-earned reputation for not being welcoming to new users.</p></li>
+<li class="fragment"><p>It also had a <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/stack-overflow-bans-users-en-masse-for-rebelling-against-openai-partnership-users-banned-for-deleting-answers-to-prevent-them-being-used-to-train-chatgpt">recent controversy related to selling data to OpenAI</a>, with many users deleting answers they had previously posted</p></li>
 </ul>
 </section>
 <section id="posit-community" class="slide level2 center">
@@ -471,8 +483,8 @@
 <li class="fragment"><p>The admins do work to make the site a welcoming place for all users.</p></li>
 </ul>
 </section>
-<section id="r-for-data-science-learning-community" class="slide level2 center">
-<h2><a href="https://www.rfordatasci.com/">R for Data Science Learning Community</a></h2>
+<section id="data-science-learning-community" class="slide level2 center">
+<h2><a href="https://dslc.io/">Data Science Learning Community</a></h2>
 <ul>
 <li class="fragment"><p>Slack community that is very welcoming to newbies</p></li>
 <li class="fragment"><p>Has regular office hours where you can get 1-on-1 help</p></li>
@@ -526,13 +538,17 @@
 <h2>Example of a Good Reprex</h2>
 <p>How can I reorder bars on the y axis?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>diamonds <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">mutate</span>(<span class="at">cut =</span> <span class="fu">as.character</span>(cut)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">group_by</span>(cut) <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">summarize</span>(<span class="at">avg_price =</span> <span class="fu">mean</span>(price)) <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> avg_price,</span>
-<span id="cb1-6"><a href="#cb1-6"></a>             <span class="at">y =</span> cut)) <span class="sc">+</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href=""></a></span>
+<span id="cb1-3"><a href=""></a>diamonds <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">cut =</span> <span class="fu">as.character</span>(cut)) <span class="sc">|&gt;</span></span>
+<span id="cb1-5"><a href=""></a>  <span class="fu">group_by</span>(cut) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">avg_price =</span> <span class="fu">mean</span>(price)) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(</span>
+<span id="cb1-8"><a href=""></a>    <span class="at">x =</span> avg_price,</span>
+<span id="cb1-9"><a href=""></a>    <span class="at">y =</span> cut</span>
+<span id="cb1-10"><a href=""></a>  )) <span class="sc">+</span></span>
+<span id="cb1-11"><a href=""></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="slides-week-13_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
@@ -558,8 +574,8 @@
 <section id="r-in-3-months" class="slide level2 center">
 <h2>R in 3 Months</h2>
 <ol type="1">
-<li class="fragment"><p>Submit any assignments for feedback any time in December</p></li>
-<li class="fragment"><p>Any 1-on-1s with your coaches must be completed by December 22</p></li>
+<li class="fragment"><p>Submit any assignments for feedback any time in June</p></li>
+<li class="fragment"><p>Any 1-on-1s with your coaches must be completed by end of June</p></li>
 <li class="fragment"><p>Please submit final assignments whenever (we love seeing what you’ve done!)</p></li>
 <li class="fragment"><p>You have access to course materials FOREVER</p></li>
 </ol>
@@ -573,8 +589,10 @@
 </section></section>
 <section id="thank-you-for-being-part-of-r-in-3-months" class="title-slide slide level1 inverse center">
 <h1>Thank You for Being Part of R in 3 Months!</h1>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -603,7 +621,6 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -902,10 +919,27 @@
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -915,8 +949,17 @@
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -930,7 +973,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
