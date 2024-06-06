@@ -131,6 +131,8 @@ pre_post_plot("scared")
 
 # Rubber Duck Debugging {.inverse}
 
+---
+
 The power of talking through your code problems 🦆 💬
 
 -   It doesn't have to be a duck
@@ -139,7 +141,9 @@ The power of talking through your code problems 🦆 💬
 
 -   Related: take two trips bringing in the groceries
 
-# Planning with Pseudo Code
+# Planning with Pseudo Code {.inverse}
+
+---
 
 -   Avoids "blank page syndrome" and chronic backtracking
 
@@ -149,7 +153,9 @@ The power of talking through your code problems 🦆 💬
 
 -   Use plain language \*\*before\*\* you code == comments!
 
-## Where to Ask Questions
+## Where to Ask Questions {.inverse}
+
+---
 
 There are three popular question and answer communities for (R) code questions:
 
