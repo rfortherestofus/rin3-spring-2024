@@ -24,24 +24,22 @@ editor_options:
   chunk_output_type: console
 ---
 
-  
 ```{r}
 #| echo: false
 library(tidyverse)
 library(janitor)
 ```
 
-
 # Agenda
 
-1. How Far You've Come
+1.  How Far You've Come
 
-1. Where to Go From Here
+2.  Where to Go From Here
 
-::: {.notes}
+::: notes
 https://rin3spring2024.rfortherestofus.com/slides/slides-week-13.html
 :::
-  
+
 # How Far You've Come {.inverse}
 
 ```{r}
@@ -102,7 +100,7 @@ pre_post_plot <- function(area) {
 }
 ```
 
-::: {.notes}
+::: notes
 https://rfortherestofus.com/courses/r-in-3-months-spring-2024/lessons/r-in-3-months-progress-survey
 :::
 
@@ -120,8 +118,6 @@ pre_post_plot(area = "data_analysis")
 pre_post_plot("visualization")
 ```
 
-
-
 ## How Scared/Excited You Are About R
 
 ```{r}
@@ -135,7 +131,23 @@ pre_post_plot("scared")
 
 # Rubber Duck Debugging {.inverse}
 
+The power of talking through your code problems 🦆 💬
+
+-   It doesn't have to be a duck
+
+-   Walk through as if the "duck" has no context
+
+-   Related: take two trips bringing in the groceries
+
 # Planning with Pseudo Code
+
+-   Avoids "blank page syndrome" and chronic backtracking
+
+-   Get to know your subject qualitatively
+
+-   Refine your analysis questions
+
+-   Use plain language \*\*before\*\* you code == comments!
 
 ## Where to Ask Questions
 
@@ -143,35 +155,35 @@ There are three popular question and answer communities for (R) code questions:
 
 ## [stackoverflow.com](https://stackoverflow.com)
 
-- This is a general purpose code Q&A website.
+-   This is a general purpose code Q&A website.
 
-- Unfortunately, it has a well-earned reputation for not being welcoming to new users.
+-   Unfortunately, it has a well-earned reputation for not being welcoming to new users.
 
-- It also had a [recent controversy related to selling data to OpenAI](https://www.tomshardware.com/tech-industry/artificial-intelligence/stack-overflow-bans-users-en-masse-for-rebelling-against-openai-partnership-users-banned-for-deleting-answers-to-prevent-them-being-used-to-train-chatgpt), with many users deleting answers they had previously posted
+-   It also had a [recent controversy related to selling data to OpenAI](https://www.tomshardware.com/tech-industry/artificial-intelligence/stack-overflow-bans-users-en-masse-for-rebelling-against-openai-partnership-users-banned-for-deleting-answers-to-prevent-them-being-used-to-train-chatgpt), with many users deleting answers they had previously posted
 
 ## [Posit Community](https://community.rstudio.com/)
 
-- This community is run by Posit and is specifically for R users.
+-   This community is run by Posit and is specifically for R users.
 
-- The admins do work to make the site a welcoming place for all users.
+-   The admins do work to make the site a welcoming place for all users.
 
 ## [Data Science Learning Community](https://dslc.io/)
 
-- Slack community that is very welcoming to newbies
+-   Slack community that is very welcoming to newbies
 
-- Has regular office hours where you can get 1-on-1 help
+-   Has regular office hours where you can get 1-on-1 help
 
 ## Bonus: [R-Ladies](https://rladies.org/)
 
-- "A worldwide organization whose mission is to promote gender diversity in the R community"
+-   "A worldwide organization whose mission is to promote gender diversity in the R community"
 
-- Extremely welcoming
+-   Extremely welcoming
 
-- Have local chapters that often host events
+-   Have local chapters that often host events
 
 ## Bonus: ChatGPT
 
-- The more you can specify the package you want it to use, the better results you'll have
+-   The more you can specify the package you want it to use, the better results you'll have
 
 # How to Ask Good (Code) Questions {.inverse}
 
@@ -194,14 +206,12 @@ In addition to making your code reproducible you should try to make it *minimal*
 . . .
 
 > Use the smallest, simplest, most built-in data possible.
-> 
+>
 > Think: iris or mtcars. Bore me.
 
 . . .
 
 Make your question as focused as possible
-
-
 
 ## Example of a Good Reprex
 
@@ -221,16 +231,15 @@ diamonds |>
   geom_col()
 ```
 
-
 ## Using the `reprex` Package
 
-1. Select the code that makes your reprex
+1.  Select the code that makes your reprex
 
-1. Open the Addins menu and select "Render reprex..."
+2.  Open the Addins menu and select "Render reprex..."
 
-1. Choose the options for where you're asking your question
+3.  Choose the options for where you're asking your question
 
-1. Copy and paste the output in the Viewer tab into your question
+4.  Copy and paste the output in the Viewer tab into your question
 
 ## Learn More About Reprex
 
@@ -242,18 +251,18 @@ diamonds |>
 
 ## R in 3 Months
 
-1. Submit any assignments for feedback any time in June
+1.  Submit any assignments for feedback any time in June
 
-1. Any 1-on-1s with your coaches must be completed by end of June
+2.  Any 1-on-1s with your coaches must be completed by end of June
 
-1. Please submit final assignments whenever (we love seeing what you've done!)
+3.  Please submit final assignments whenever (we love seeing what you've done!)
 
-1. You have access to course materials FOREVER
+4.  You have access to course materials FOREVER
 
 ## Other Things
 
-1. Topics courses (use coupon code RIN3TOPICSCOURSES to get 25% off)
+1.  Topics courses (use coupon code RIN3TOPICSCOURSES to get 25% off)
 
-1. Additional ways that R for the Rest of Us can help you and your organization
+2.  Additional ways that R for the Rest of Us can help you and your organization
 
 # Thank You for Being Part of R in 3 Months! {.inverse}
