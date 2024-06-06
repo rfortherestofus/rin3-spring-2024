@@ -57,7 +57,8 @@ pre_survey <- read_sheet("https://docs.google.com/spreadsheets/d/19Ny92IGg0ZzIqi
   filter(timestamp > as.Date("2024-01-01")) |>
   select(-what_is_your_name)
 
-pre_survey_tidy <- pre_survey |>
+pre_survey_tidy <-
+  pre_survey |>
   select(contains("rate"), contains("terrified")) |>
   set_names(c("data_analysis", "visualization", "scared")) |>
   pivot_longer(cols = everything()) |>
@@ -73,7 +74,8 @@ post_survey_tidy <- post_survey |>
   pivot_longer(cols = everything()) |>
   mutate(timing = "Post")
 
-pre_post_data <- bind_rows(pre_survey_tidy, post_survey_tidy) |>
+pre_post_data <-
+  bind_rows(pre_survey_tidy, post_survey_tidy) |>
     group_by(timing, name) |>
     summarize(avg_response = mean(value, na.rm = TRUE)) |>
     ungroup() |>
@@ -115,14 +117,14 @@ pre_post_plot(area = "data_analysis")
 
 ```{r}
 #| echo: false
-pre_post_plot("visualization")
+pre_post_plot(area = "visualization")
 ```
 
 ## How Scared/Excited You Are About R
 
 ```{r}
 #| echo: false
-pre_post_plot("scared")
+pre_post_plot(area = "scared")
 ```
 
 ## What You've Done in the Last Three Months {.inverse}
@@ -187,9 +189,17 @@ There are three popular question and answer communities for (R) code questions:
 
 -   Have local chapters that often host events
 
-## Bonus: ChatGPT
+## Bonus: ChatGPT + other AI tools
 
 -   The more you can specify the package you want it to use, the better results you'll have
+
+## Bonus: Conferences
+
+- [Cascadia R Conf](https://cascadiarconf.com/)
+
+- [posit::conf](https://posit.co/conference/)
+
+- [R Medicine Conference](https://rconsortium.github.io/RMedicine_website/)
 
 # How to Ask Good (Code) Questions {.inverse}
 
@@ -219,23 +229,9 @@ In addition to making your code reproducible you should try to make it *minimal*
 
 Make your question as focused as possible
 
-## Example of a Good Reprex
+## Example of a Good Reprex 
 
 How can I reorder bars on the y axis?
-
-```{r}
-library(tidyverse)
-
-diamonds |>
-  mutate(cut = as.character(cut)) |>
-  group_by(cut) |>
-  summarize(avg_price = mean(price)) |>
-  ggplot(aes(
-    x = avg_price,
-    y = cut
-  )) +
-  geom_col()
-```
 
 ## Using the `reprex` Package
 

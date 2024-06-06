@@ -20,6 +20,7 @@ library(tidyverse)
 
 diamonds |>
   mutate(cut = as.character(cut)) |>
+  mutate(cut = fct_rev(cut)) |> 
   group_by(cut) |>
   summarize(avg_price = mean(price)) |>
   ggplot(aes(
